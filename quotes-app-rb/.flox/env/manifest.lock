@@ -1,0 +1,155 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "version": 1,
+    "install": {
+      "ruby": {
+        "pkg-path": "ruby"
+      }
+    },
+    "vars": {
+      "GEM_HOME": "vendor"
+    },
+    "hook": {
+      "on-activate": "    unset CPATH\n"
+    },
+    "profile": {},
+    "options": {
+      "systems": [
+        "aarch64-darwin",
+        "aarch64-linux",
+        "x86_64-darwin",
+        "x86_64-linux"
+      ]
+    },
+    "build": {
+      "quotes-app-rb": {
+        "command": "bundle && mkdir -p $out/{lib,bin} && cp -pr * $out/lib && mv $out/lib/quotes $out/bin",
+        "version": "0.1.0",
+        "description": "A simple Ruby app that prints a random quote from a list of quotes."
+      }
+    }
+  },
+  "packages": [
+    {
+      "attr_path": "ruby",
+      "broken": false,
+      "derivation": "/nix/store/yf4vwyzg386jqkxn292qbxzm76hham03-ruby-3.3.6.drv",
+      "description": "Object-oriented language for quick and easy programming",
+      "install_id": "ruby",
+      "license": "Ruby",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "name": "ruby-3.3.6",
+      "pname": "ruby",
+      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
+      "rev_count": 773904,
+      "rev_date": "2025-03-25T07:53:30Z",
+      "scrape_date": "2025-03-27T01:10:25.208130Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.3.6",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "devdoc": "/nix/store/ssl3q25x34dzbska7h8nwnhr5c4yhi9y-ruby-3.3.6-devdoc",
+        "out": "/nix/store/1vl1vibk1q0jg4305mmkn691k7nipm86-ruby-3.3.6"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ruby",
+      "broken": false,
+      "derivation": "/nix/store/6za1vax1fpl3x88jqpg0y958jk5assb8-ruby-3.3.6.drv",
+      "description": "Object-oriented language for quick and easy programming",
+      "install_id": "ruby",
+      "license": "Ruby",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "name": "ruby-3.3.6",
+      "pname": "ruby",
+      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
+      "rev_count": 773904,
+      "rev_date": "2025-03-25T07:53:30Z",
+      "scrape_date": "2025-03-27T01:28:00.924535Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.3.6",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "devdoc": "/nix/store/0s1agbfy6vsg2s4yz1lg2hwnm2b10dvr-ruby-3.3.6-devdoc",
+        "out": "/nix/store/kz840qiahn5dzj5ma33ya2flavc2xdw3-ruby-3.3.6"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ruby",
+      "broken": false,
+      "derivation": "/nix/store/1l5qhsyn7i2hmzr1m3nyslyh0ban6man-ruby-3.3.6.drv",
+      "description": "Object-oriented language for quick and easy programming",
+      "install_id": "ruby",
+      "license": "Ruby",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "name": "ruby-3.3.6",
+      "pname": "ruby",
+      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
+      "rev_count": 773904,
+      "rev_date": "2025-03-25T07:53:30Z",
+      "scrape_date": "2025-03-27T01:43:24.749107Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.3.6",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "devdoc": "/nix/store/zkwc0vscv5j6jf8kjzaszcmrb4wwq98f-ruby-3.3.6-devdoc",
+        "out": "/nix/store/lldwfqrdyl4z0ahvd5djd2x87pdbvq2q-ruby-3.3.6"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "ruby",
+      "broken": false,
+      "derivation": "/nix/store/6xlwvrkj9gqi2z15syfar8mc6cc3mqb6-ruby-3.3.6.drv",
+      "description": "Object-oriented language for quick and easy programming",
+      "install_id": "ruby",
+      "license": "Ruby",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "name": "ruby-3.3.6",
+      "pname": "ruby",
+      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
+      "rev_count": 773904,
+      "rev_date": "2025-03-25T07:53:30Z",
+      "scrape_date": "2025-03-27T02:02:34.838149Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.3.6",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "devdoc": "/nix/store/2h68kzh5bv60l4bq814r0my8brk93lcg-ruby-3.3.6-devdoc",
+        "out": "/nix/store/xk96lh29cjq0ak8zf89as6yk3wj7zh0x-ruby-3.3.6"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
+}
