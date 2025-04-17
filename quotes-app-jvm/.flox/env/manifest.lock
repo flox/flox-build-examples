@@ -21,9 +21,9 @@
       ]
     },
     "build": {
-      "quotes-app": {
-        "command": "   # Build a fat jar with gradle using the shadowJar plugin\n   gradle shadowJar\n   mkdir -p $out/{lib,bin} && cp build/libs/*.jar $out/lib\n   echo '#!/usr/bin/env bash' > $out/bin/quotes\n   echo 'SCRIPT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)\"' >> $out/bin/quotes\n   echo 'JAR_PATH=\"$SCRIPT_DIR/../lib/quotes-app-all.jar\"' >> $out/bin/quotes\n   echo 'exec java -jar \"$JAR_PATH\" \"$@\"' >> $out/bin/quotes\n   chmod 755 $out/bin/quotes\n",
-        "description": "A quotes app written in kotlin because I hate myself"
+      "quotes-app-jvm": {
+        "command": "   # Build a fat jar with gradle using the shadowJar plugin\n   gradle shadowJar\n   mkdir -p $out/{lib,bin} && cp build/libs/*.jar $out/lib\n   echo '#!/usr/bin/env sh' > $out/bin/quotes-jvm\n   echo 'SCRIPT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)\"' >> $out/bin/quotes-jvm\n   echo 'JAR_PATH=\"$SCRIPT_DIR/../lib/quotes-app-jvm-all.jar\"' >> $out/bin/quotes-jvm\n   echo 'exec java -jar \"$JAR_PATH\" \"$@\"' >> $out/bin/quotes-jvm\n   chmod 755 $out/bin/quotes-jvm\n",
+        "description": "A quotes app written in kotlin"
       }
     }
   },
