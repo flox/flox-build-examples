@@ -1,0 +1,151 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "version": 1,
+    "install": {
+      "php": {
+        "pkg-path": "php"
+      }
+    },
+    "hook": {},
+    "profile": {},
+    "options": {
+      "systems": [
+        "aarch64-darwin",
+        "aarch64-linux",
+        "x86_64-darwin",
+        "x86_64-linux"
+      ]
+    },
+    "services": {
+      "quotes-php": {
+        "command": "php -S localhost:8000"
+      }
+    },
+    "build": {
+      "quotes-app-php": {
+        "command": "   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib\n   echo \"#!/usr/bin/env sh\" > $out/bin/quotes-app-php\n   echo \"cd $out/lib && php -S localhost:3000\" >> $out/bin/quotes-app-php\n   chmod 755 $out/bin/*\n",
+        "version": "0.0.1",
+        "description": "A simple php app that prints a random quote from a list of quotes."
+      }
+    }
+  },
+  "packages": [
+    {
+      "attr_path": "php",
+      "broken": false,
+      "derivation": "/nix/store/4q5i2mzyhx8hd4nvlxpmszyhab0jan95-php-with-extensions-8.4.5.drv",
+      "description": "HTML-embedded scripting language",
+      "install_id": "php",
+      "license": "PHP-3.01",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "name": "php-with-extensions-8.4.5",
+      "pname": "php",
+      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "rev_count": 781462,
+      "rev_date": "2025-04-09T21:06:01Z",
+      "scrape_date": "2025-04-12T01:11:11.916493Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.4.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/6lhn4iy98zjryz544cl2rzi1mvc0xzx9-php-with-extensions-8.4.5"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "php",
+      "broken": false,
+      "derivation": "/nix/store/056120jnmf0p3zrphmm07jm9zw348f0y-php-with-extensions-8.4.5.drv",
+      "description": "HTML-embedded scripting language",
+      "install_id": "php",
+      "license": "PHP-3.01",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "name": "php-with-extensions-8.4.5",
+      "pname": "php",
+      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "rev_count": 781462,
+      "rev_date": "2025-04-09T21:06:01Z",
+      "scrape_date": "2025-04-12T01:27:59.498694Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.4.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/gdkg725jp83k3x30hyjka9klxx7wd85c-php-with-extensions-8.4.5"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "php",
+      "broken": false,
+      "derivation": "/nix/store/0r6hqrqgc01cngqj1dhx6gj0dj6wcjzb-php-with-extensions-8.4.5.drv",
+      "description": "HTML-embedded scripting language",
+      "install_id": "php",
+      "license": "PHP-3.01",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "name": "php-with-extensions-8.4.5",
+      "pname": "php",
+      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "rev_count": 781462,
+      "rev_date": "2025-04-09T21:06:01Z",
+      "scrape_date": "2025-04-12T01:43:16.773430Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.4.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/6gvdx8ygar2k9abs7f5qg1qzlkdmrvvz-php-with-extensions-8.4.5"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "php",
+      "broken": false,
+      "derivation": "/nix/store/hjclv57v0qmw93jv12l6vk7j0da996qb-php-with-extensions-8.4.5.drv",
+      "description": "HTML-embedded scripting language",
+      "install_id": "php",
+      "license": "PHP-3.01",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "name": "php-with-extensions-8.4.5",
+      "pname": "php",
+      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "rev_count": 781462,
+      "rev_date": "2025-04-09T21:06:01Z",
+      "scrape_date": "2025-04-12T02:01:43.264804Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.4.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/93gwy8p7yry67sajrfi3jjybnigwxnv0-php-with-extensions-8.4.5"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
+}
