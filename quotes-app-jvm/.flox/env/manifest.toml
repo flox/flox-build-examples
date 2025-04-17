@@ -67,18 +67,18 @@ jdk.pkg-path = "jdk"
 [services]
 # myservice.command = "python3 -m http.server"
 
-[build.quotes-app]
+[build.quotes-app-jvm]
 command = """
    # Build a fat jar with gradle using the shadowJar plugin
    gradle shadowJar
    mkdir -p $out/{lib,bin} && cp build/libs/*.jar $out/lib
-   echo '#!/usr/bin/env bash' > $out/bin/quotes
-   echo 'SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"' >> $out/bin/quotes
-   echo 'JAR_PATH="$SCRIPT_DIR/../lib/quotes-app-all.jar"' >> $out/bin/quotes
-   echo 'exec java -jar "$JAR_PATH" "$@"' >> $out/bin/quotes
-   chmod 755 $out/bin/quotes
+   echo '#!/usr/bin/env sh' > $out/bin/quotes-jvm
+   echo 'SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"' >> $out/bin/quotes-jvm
+   echo 'JAR_PATH="$SCRIPT_DIR/../lib/quotes-app-jvm-all.jar"' >> $out/bin/quotes-jvm
+   echo 'exec java -jar "$JAR_PATH" "$@"' >> $out/bin/quotes-jvm
+   chmod 755 $out/bin/quotes-jvm
 """
-description = "A quotes app written in kotlin because I hate myself"
+description = "A quotes app written in kotlin"
 
    
 

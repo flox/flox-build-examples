@@ -39,7 +39,7 @@ Or from the Flox built artifact:
 
 ## Client
 
-The service can be accessed via HTTP GET requests on localhost:8080/quotes
+The service can be accessed via HTTP GET requests on localhost:3000/quotes
 
 ### 📚 HTTP Routes
 

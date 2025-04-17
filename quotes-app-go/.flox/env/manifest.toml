@@ -61,7 +61,8 @@ go.pkg-path = "go"
 version = "0.0.1"
 description = "Quotes App written in Go"
 command = """
-  mkdir -p $out/bin
+  mkdir -p $out/{lib,bin}
+  cp -pr quotes.json $out/lib
   go build -o $out/bin/quotes-app-go main.go
   chmod +x $out/bin/quotes-app-go
 """

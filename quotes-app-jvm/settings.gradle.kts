@@ -1,2 +1,2 @@
-rootProject.name = "quotes-app"
+rootProject.name = "quotes-app-jvm"
 

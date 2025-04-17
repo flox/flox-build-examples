@@ -13,15 +13,32 @@ import (
 
 var quotes []interface{}
 
-func loadQuotes(filename string) {
-	data, err := os.ReadFile(filename)
-	if err != nil {
-		log.Fatalf("Failed to read quotes file: %v", err)
+
+func loadQuotes(defaultPath string) {
+	pathsToTry := []string{
+		defaultPath,
+		"../lib/" + defaultPath,
 	}
+
+	var data []byte
+	var err error
+	for _, path := range pathsToTry {
+		data, err = os.ReadFile(path)
+		if err == nil {
+			fmt.Printf("Loaded quotes from: %s\n", path)
+			break
+		}
+	}
+
+	if err != nil {
+		log.Fatalf("Failed to read quotes file from any known location: %v", err)
+	}
+
 	if err := json.Unmarshal(data, &quotes); err != nil {
 		log.Fatalf("Failed to parse JSON: %v", err)
 	}
 }
+
 
 func getAllQuotes(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
