@@ -11,6 +11,7 @@ to build a package using the manifest build approach from Flox.
 * Go
 * PHP
 * C++
+* Rust
 
 Feel free to add more.
 
