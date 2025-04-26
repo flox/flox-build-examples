@@ -34,7 +34,9 @@
     "build": {
       "quotes-cpp": {
         "command": "  mkdir -p $out/{bin,lib,libexec}\n  make\n  cp -pr quotes.json $out/lib\n  cp -pr quotes-cpp $out/libexec\n  echo \"#!/usr/bin/env sh\" > $out/bin/quotes-cpp\n  echo \"export QUOTES_FILE=$out/lib/quotes.json\" >> $out/bin/quotes-cpp\n  echo \"exec $out/libexec/quotes-cpp\" >> $out/bin/quotes-cpp\n  chmod +x $out/bin/quotes-cpp\n",
-        "runtime-packages": [],
+        "runtime-packages": [
+          "boost"
+        ],
         "version": "0.0.1",
         "description": "Quotes app written in C++"
       }
