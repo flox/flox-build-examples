@@ -73,8 +73,8 @@ command = """
   echo "exec $out/libexec/quotes-cpp" >> $out/bin/quotes-cpp
   chmod +x $out/bin/quotes-cpp
 """
-# Nothing is needed after the artifact is built, other than the artifact
-runtime-packages = [ ]
+# Need libboost.dylib at runtime.
+runtime-packages = [ "boost" ]
 
 
 ## Services ----------------------------------------------------------
