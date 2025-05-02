@@ -1,44 +1,27 @@
 package main
 
 import (
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"strconv"
 
 	"github.com/gorilla/mux"
 )
 
+//go:embed quotes.json
+var quotesFile []byte
+
 var quotes []interface{}
 
-
-func loadQuotes(defaultPath string) {
-	pathsToTry := []string{
-		defaultPath,
-		"../lib/" + defaultPath,
+func loadQuotes() {
+	if err := json.Unmarshal(quotesFile, &quotes); err != nil {
+		log.Fatalf("Failed to parse embedded quotes.json: %v", err)
 	}
-
-	var data []byte
-	var err error
-	for _, path := range pathsToTry {
-		data, err = os.ReadFile(path)
-		if err == nil {
-			fmt.Printf("Loaded quotes from: %s\n", path)
-			break
-		}
-	}
-
-	if err != nil {
-		log.Fatalf("Failed to read quotes file from any known location: %v", err)
-	}
-
-	if err := json.Unmarshal(data, &quotes); err != nil {
-		log.Fatalf("Failed to parse JSON: %v", err)
-	}
+	fmt.Println("Loaded embedded quotes.json")
 }
-
 
 func getAllQuotes(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -64,7 +47,7 @@ func getQuoteByIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	loadQuotes("quotes.json")
+	loadQuotes()
 
 	r := mux.NewRouter()
 	r.HandleFunc("/quotes", getAllQuotes).Methods("GET")
