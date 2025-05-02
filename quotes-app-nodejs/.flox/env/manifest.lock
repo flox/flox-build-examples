@@ -26,7 +26,7 @@
     },
     "build": {
       "quotes-app-nodejs": {
-        "command": "   mkdir -p $out/{lib,bin} \n\t cp -pr package.* quotes.json app.js $out/lib\n   pushd $out/lib\n   npm install --omit=dev\n   popd\n   echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-nodejs\n   echo \"node $out/lib/app.js\" >> $out/bin/quotes-nodejs\n   chmod 755 $out/bin/quotes-nodejs\n",
+        "command": "   mkdir -p $out/{lib,bin} \n\t cp -pr package.* quotes.json app.js $out/lib\n   pushd $out/lib\n   npm install --omit=dev\n   popd\n   echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-app-nodejs\n   echo \"exec node $out/lib/app.js\" >> $out/bin/quotes-app-nodejs\n   chmod 755 $out/bin/quotes-app-nodejs\n",
         "version": "0.0.1",
         "description": "A quotes app written in nodejs"
       }
