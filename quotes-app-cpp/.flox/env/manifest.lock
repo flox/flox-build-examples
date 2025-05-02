@@ -32,8 +32,8 @@
       }
     },
     "build": {
-      "quotes-cpp": {
-        "command": "  mkdir -p $out/{bin,lib,libexec}\n  make\n  cp -pr quotes.json $out/lib\n  cp -pr quotes-cpp $out/libexec\n  echo \"#!/usr/bin/env sh\" > $out/bin/quotes-cpp\n  echo \"export QUOTES_FILE=$out/lib/quotes.json\" >> $out/bin/quotes-cpp\n  echo \"exec $out/libexec/quotes-cpp\" >> $out/bin/quotes-cpp\n  chmod +x $out/bin/quotes-cpp\n",
+      "quotes-app-cpp": {
+        "command": "  mkdir -p $out/{bin,lib,libexec}\n  make\n  cp -pr quotes.json $out/lib\n  cp -pr quotes-app-cpp $out/libexec\n  echo \"#!/usr/bin/env sh\" > $out/bin/quotes-app-cpp\n  echo \"export QUOTES_FILE=$out/lib/quotes.json\" >> $out/bin/quotes-app-cpp\n  echo \"exec $out/libexec/quotes-app-cpp\" >> $out/bin/quotes-app-cpp\n  chmod +x $out/bin/quotes-app-cpp\n",
         "runtime-packages": [
           "boost"
         ],
