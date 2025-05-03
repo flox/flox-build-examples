@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
+
+# Set which flox you want to use
+FLOX="/usr/local/bin/flox"
 
 # Config
 BASE_PORT=3000
 TIMEOUT=15
-FLOX="/Users/stahnma/bin/floxdev"
-APPS=$(ls -d */ | tr -d '/')
+
+APPS=$(find ./* -type d -prune -print |xargs -0 | tr -d './')
 
 # Global test results
 declare -a TEST_RESULTS=()
@@ -21,7 +25,7 @@ build_app() {
 
 wait_for_server() {
 	local port=$1
-	for i in $(seq 1 "$TIMEOUT"); do
+	for _i in $(seq 1 "$TIMEOUT"); do
 		if curl -s "http://localhost:${port}/quotes/1" > /dev/null; then
 			return 0
 		fi
@@ -35,8 +39,10 @@ test_app() {
 	local port=$BASE_PORT
 	echo "Testing $app on port $port..."
 
-	local dir=$(dirname "$app")
-	local binary="${app}/result-$(basename "$app")/bin/${app}"
+  declare binary
+  declare dir
+  dir=$(dirname "$app")
+	binary="${app}/result-$(basename "$app")/bin/${app}"
 
 	pushd "$dir" > /dev/null
 	echo "Running binary $binary"
