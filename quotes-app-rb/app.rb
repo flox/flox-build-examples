@@ -2,10 +2,12 @@ require 'sinatra'
 require 'json'
 require 'webrick'
 
+set :port, 3000
 set :server, 'webrick'
 
 # Load quotes from the JSON file
-quotes = JSON.parse(File.read('quotes.json'))
+quotes_file = File.join(__dir__, 'quotes.json')
+quotes = JSON.parse(File.read(quotes_file))
 
 # Endpoint to retrieve all quotes
 get '/quotes' do

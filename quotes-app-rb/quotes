@@ -1,4 +1,22 @@
-#!/usr/bin/env sh
+#!/bin/sh
+set -eu
 
+SCRIPT_PATH="$0"
+while [ -L "$SCRIPT_PATH" ]; do
+  TARGET=$(readlink "$SCRIPT_PATH")
+  case "$TARGET" in
+    /*) SCRIPT_PATH="$TARGET" ;;
+    *) SCRIPT_PATH="$(dirname "$SCRIPT_PATH")/$TARGET" ;;
+  esac
+done
 
-bundle exec ruby app.rb
+SCRIPT_DIR=$(cd "$(dirname "$SCRIPT_PATH")" && pwd)
+APP_ROOT="$SCRIPT_DIR/../lib"
+
+export BUNDLE_GEMFILE="$APP_ROOT/Gemfile"
+export BUNDLE_PATH="$APP_ROOT/vendor"
+export GEM_HOME="$APP_ROOT/vendor"
+export GEM_PATH="$APP_ROOT/vendor"
+
+exec bundle exec ruby -rbundler/setup "$APP_ROOT/app.rb"
+
