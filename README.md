@@ -5,12 +5,12 @@ to build a package using the manifest build approach from Flox.
 
 # Supported Languages
 
-* JVM (kotlin)
-* Ruby
-* Nodejs
-* Go
-* PHP
 * C++
+* Go
+* JVM (kotlin)
+* Nodejs
+* Ruby
+* PHP
 * Rust
 
 Feel free to add more.
@@ -35,7 +35,11 @@ To test, you should be able to run
 If that returns a 200, it's working.
 
 
+# Automated Testing
 
+`make test` at the top level of the project will build and test all directories.
+
+You can also run `make ruby` or `make go`, etc
 
 
 # Using
@@ -44,5 +48,6 @@ If that returns a 200, it's working.
 ```bash
 flox build
 ```
+
 # License
 MIT
