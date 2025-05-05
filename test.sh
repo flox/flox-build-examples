@@ -3,7 +3,8 @@
 set -euo pipefail
 
 # Set which flox you want to use
-FLOX="/usr/local/bin/flox"
+FLOXBIN=${FLOXBIN:-"/usr/local/bin/flox"}
+
 
 # Config
 BASE_PORT=3000
@@ -18,8 +19,8 @@ build_app() {
 	local app=$1
 	echo "🔨 Building $app with Flox..."
 	pushd "$app" > /dev/null
-	$FLOX build clean 
-	$FLOX build 
+	$FLOXBIN build clean 
+	$FLOXBIN build 
 	popd > /dev/null
 }
 
