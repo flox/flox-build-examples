@@ -13,7 +13,7 @@ jvm:
 	./test.sh quotes-app-jvm
 
 nodejs:
-	./test.sh quotes-app-js
+	./test.sh quotes-app-nodejs
 
 php:
 	./test.sh quotes-app-php
@@ -27,8 +27,8 @@ rust:
 
 clean:
 	@for dir in $(shell ls -d */ | tr -d '/'); do \
-		if [ -f $$dir/Makefile ]; then \
-      echo $$dir ;\
-			$(MAKE) -C $$dir clean; \
-		fi; \
+	if [ -f $$dir/Makefile ]; then \
+          echo $$dir ;\
+          $(MAKE) -C $$dir clean; \
+	fi; \
 	done
