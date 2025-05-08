@@ -1,5 +1,6 @@
 
 
+FLOXBIN ?= /usr/local/bin/flox
 
 all: build
 
@@ -14,4 +15,4 @@ build: fmt
 
 clean:
 	rm -f quotes-app-go
-	@flox build clean
+	@$(FLOXBIN) build clean

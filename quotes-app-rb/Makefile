@@ -1,5 +1,5 @@
 
-
+FLOXBIN ?= /usr/local/bin/flox
 
 build:
 	bundle config set --local path ./vendor
@@ -7,4 +7,4 @@ build:
 
 clean:
 	rm -rf vendor .bundle
-	@flox build clean
+	@$(FLOXBIN) build clean

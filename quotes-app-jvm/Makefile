@@ -1,4 +1,5 @@
 
+FLOXBIN ?= /usr/local/bin/flox
 
 jar:
 	gradle shadowJar
@@ -8,5 +9,5 @@ clean:
 	gradle clean
 	gradle --stop || true
 	rm -rf build .gradle
-	@flox build clean
+	@$(FLOXBIN) build clean
 

@@ -1,4 +1,5 @@
 
+FLOXBIN ?= /usr/local/bin/flox
 
 build:
 	cargo build
@@ -9,4 +10,4 @@ release:
 
 clean:
 	rm -rf target
-	@flox build clean
+	@$(FLOXBIN) build clean

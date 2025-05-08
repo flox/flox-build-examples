@@ -1,8 +1,8 @@
 
-
+FLOXBIN ?= /usr/local/bin/flox
 
 build:
 	@echo nothing to build
 
 clean:
-	@flox build clean
+	@$(FLOXBIN) build clean

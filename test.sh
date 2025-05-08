@@ -5,6 +5,8 @@ set -euo pipefail
 # Set which flox you want to use
 FLOXBIN=${FLOXBIN:-"/usr/local/bin/flox"}
 
+echo "Using flox binary: $FLOXBIN"
+
 
 # Config
 BASE_PORT=3000
