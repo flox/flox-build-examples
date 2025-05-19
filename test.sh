@@ -3,7 +3,20 @@
 set -euo pipefail
 
 # Set which flox you want to use
-FLOXBIN=${FLOXBIN:-"/usr/local/bin/flox"}
+if [ -z "${FLOXBIN:-}"]; then
+  case "$(uname)" in
+    Darwin)
+      FLOXBIN="/usr/local/bin/flox"
+      ;;
+    Linux)
+      FLOXBIN="/usr/bin/flox"
+      ;;
+    *)
+      echo "Unsupported OS: $(uname)" >&2
+      exit 1
+      ;;
+  esac
+fi
 
 echo "Using flox binary: $FLOXBIN"
 
