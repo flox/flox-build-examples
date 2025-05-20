@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Set which flox you want to use
-if [ -z "${FLOXBIN:-}"]; then
+if [ -z "${FLOXBIN:-}" ]; then
   case "$(uname)" in
     Darwin)
       FLOXBIN="/usr/local/bin/flox"
