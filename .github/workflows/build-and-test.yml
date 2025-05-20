@@ -1,7 +1,6 @@
 name: Test Manifest Builds
 
 on:
-  push:
   pull_request:
 
 
