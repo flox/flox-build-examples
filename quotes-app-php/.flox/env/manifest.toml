@@ -63,7 +63,7 @@ command = """
    mkdir -p $out/{lib,bin} 
    cp -pr * $out/lib
    echo "#!/usr/bin/env sh" > $out/bin/quotes-app-php
-   echo "cd $out/lib && php -S localhost:3000" >> $out/bin/quotes-app-php
+   echo "cd $out/lib && exec php -S localhost:3000" >> $out/bin/quotes-app-php
    chmod 755 $out/bin/*
 """
  

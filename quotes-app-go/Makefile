@@ -11,10 +11,17 @@ ifeq ($(origin FLOXBIN), undefined)
   endif
 endif
 
-all:
-	clang++ -O3 -std=c++17 quotes_server.cpp -o quotes-app-cpp -lboost_system -lboost_json -pthread
+all: build
 
+fmt:
+	go fmt ./...
+
+tidy: fmt
+	go mod tidy
+
+build: fmt
+	go build .
 
 clean:
-	rm -f quotes-app-cpp
+	rm -f quotes-app-go
 	@$(FLOXBIN) build clean

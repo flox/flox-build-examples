@@ -1,4 +1,5 @@
 
+
 UNAME_S := $(shell uname)
 
 ifeq ($(origin FLOXBIN), undefined)
@@ -11,10 +12,9 @@ ifeq ($(origin FLOXBIN), undefined)
   endif
 endif
 
-all:
-	clang++ -O3 -std=c++17 quotes_server.cpp -o quotes-app-cpp -lboost_system -lboost_json -pthread
-
+install:
+	npm install --omit=dev
 
 clean:
-	rm -f quotes-app-cpp
+	rm -rf node_modules package-lock.json
 	@$(FLOXBIN) build clean

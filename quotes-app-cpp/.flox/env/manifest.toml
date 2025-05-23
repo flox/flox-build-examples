@@ -17,10 +17,10 @@ version = 1
 [install]
 boost.pkg-path = "boost"
 gnumake.pkg-path = "gnumake"
+#gcc-unwrapped.pkg-path = "gcc-unwrapped"
+#binutils.pkg-path = "binutils"
 clang.pkg-path = "clang"
 clang-tools.pkg-path = "clang-tools"
-# gum.pkg-path = "gum"
-# gum.version = "^0.14.5"
 
 
 ## Environment Variables ---------------------------------------------
@@ -60,18 +60,18 @@ clang-tools.pkg-path = "clang-tools"
 # zsh  = ...
 # fish = ...
 
-[build.quotes-cpp]
+[build.quotes-app-cpp]
 version = "0.0.1"
 description = "Quotes app written in C++"
 command = """
   mkdir -p $out/{bin,lib,libexec}
   make
   cp -pr quotes.json $out/lib
-  cp -pr quotes-cpp $out/libexec
-  echo "#!/usr/bin/env sh" > $out/bin/quotes-cpp
-  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-cpp
-  echo "exec $out/libexec/quotes-cpp" >> $out/bin/quotes-cpp
-  chmod +x $out/bin/quotes-cpp
+  cp -pr quotes-app-cpp $out/libexec
+  echo "#!/usr/bin/env sh" > $out/bin/quotes-app-cpp
+  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-app-cpp
+  echo "exec $out/libexec/quotes-app-cpp" >> $out/bin/quotes-app-cpp
+  chmod +x $out/bin/quotes-app-cpp
 """
 # Need libboost.dylib at runtime.
 runtime-packages = [ "boost" ]

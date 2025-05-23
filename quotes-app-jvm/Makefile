@@ -1,4 +1,5 @@
 
+
 UNAME_S := $(shell uname)
 
 ifeq ($(origin FLOXBIN), undefined)
@@ -11,10 +12,13 @@ ifeq ($(origin FLOXBIN), undefined)
   endif
 endif
 
-all:
-	clang++ -O3 -std=c++17 quotes_server.cpp -o quotes-app-cpp -lboost_system -lboost_json -pthread
-
+jar:
+	gradle shadowJar
+	@echo "Build is at ./build/libs/quotes-app-jvm-all.jar"
 
 clean:
-	rm -f quotes-app-cpp
+	gradle clean
+	gradle --stop || true
+	rm -rf build .gradle
 	@$(FLOXBIN) build clean
+
