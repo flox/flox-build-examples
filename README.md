@@ -9,8 +9,9 @@ to build a package using the manifest build approach from Flox.
 * Go
 * JVM (kotlin)
 * Nodejs
-* Ruby
 * PHP
+* Python
+* Ruby
 * Rust
 
 Feel free to add more.
