@@ -7,6 +7,9 @@ dependencies = [
     "uvicorn (>=0.34.3,<0.35.0)"
 ]
 
+[tool.poetry.scripts]
+quotes-app-python = "quotes_app_python.main:main"
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
