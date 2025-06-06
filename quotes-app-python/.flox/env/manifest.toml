@@ -111,6 +111,26 @@ zsh = """
 # ]
 
 
+[build.quotes-app-python]
+description = "A simple Python app that prints a random quote from a list of quotes."
+version = "0.0.1"
+command = """
+  # Install to a new virtualenv.
+  export POETRY_VIRTUALENVS_PATH=$out
+  export POETRY_VIRTUALENVS_IN_PROJECT=false
+  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true
+  poetry install
+
+  # Symlink any executables from the virtualenv.
+  mkdir -p "${out}/bin"
+  cd $out/bin
+  ln -s ../*/bin/quotes-app-python .
+"""
+runtime-packages = [
+  "python3",
+]
+
+
 ## Other Environment Options -----------------------------------------
 [options]
 # Systems that environment is compatible with

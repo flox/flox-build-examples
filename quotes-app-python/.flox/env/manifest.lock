@@ -27,6 +27,16 @@
         "x86_64-darwin",
         "x86_64-linux"
       ]
+    },
+    "build": {
+      "quotes-app-python": {
+        "command": "  # Install to a new virtualenv.\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true\n  poetry install\n\n  # Symlink any executables from the virtualenv.\n  mkdir -p \"${out}/bin\"\n  cd $out/bin\n  ln -s ../*/bin/quotes-app-python .\n",
+        "runtime-packages": [
+          "python3"
+        ],
+        "version": "0.0.1",
+        "description": "A simple Python app that prints a random quote from a list of quotes."
+      }
     }
   },
   "packages": [
