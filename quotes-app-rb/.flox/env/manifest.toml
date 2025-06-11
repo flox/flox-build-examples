@@ -24,3 +24,18 @@ command = """
 """
 version = "0.0.1"
 description = "A simple Ruby app that prints a random quote from a list of quotes."
+
+[build.quotes-app-rb-pure]
+command = """
+   bundle config set --local path ./vendor
+   bundle install
+   mkdir -p $out/{lib,bin} 
+   cp -pr * $out/lib 
+   mv $out/lib/quotes $out/bin/quotes-app-rb
+   # Remove things that are not needed in the final package
+	 rm -f $out/lib/.gitignore 
+   rm -rf $out/lib/.flox
+"""
+sandbox = "pure"
+version = "0.0.1"
+description = "A simple Ruby app that prints a random quote from a list of quotes."
