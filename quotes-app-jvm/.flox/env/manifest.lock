@@ -10,16 +10,7 @@
         "pkg-path": "jdk"
       }
     },
-    "hook": {},
-    "profile": {},
-    "options": {
-      "systems": [
-        "aarch64-darwin",
-        "aarch64-linux",
-        "x86_64-darwin",
-        "x86_64-linux"
-      ]
-    },
+    "options": {},
     "build": {
       "quotes-app-jvm": {
         "command": "   # Build a fat jar with gradle using the shadowJar plugin\n   gradle shadowJar\n   mkdir -p $out/{lib,bin} && cp build/libs/*.jar $out/lib\n   echo '#!/usr/bin/env sh' > $out/bin/quotes-app-jvm\n   echo 'SCRIPT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)\"' >> $out/bin/quotes-app-jvm\n   echo 'JAR_PATH=\"$SCRIPT_DIR/../lib/quotes-app-jvm-all.jar\"' >> $out/bin/quotes-app-jvm\n   echo 'exec java -jar \"$JAR_PATH\" \"$@\"' >> $out/bin/quotes-app-jvm\n   chmod 755 $out/bin/quotes-app-jvm\n",
@@ -31,27 +22,27 @@
     {
       "attr_path": "gradle-unwrapped",
       "broken": false,
-      "derivation": "/nix/store/zq636zs48gwdk51k7c70djq4m9a97j6b-gradle-8.12.1.drv",
+      "derivation": "/nix/store/6ihmf20q46ybd81nfs92xbn9281m002h-gradle-8.14.1.drv",
       "description": "Enterprise-grade build system",
       "install_id": "gradle-unwrapped",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "gradle-8.12.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "gradle-8.14.1",
       "pname": "gradle-unwrapped",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:09:58.017298Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:51.516332Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "8.12.1",
+      "version": "8.14.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/8x9rb0586byp7ijcxzmsm8xxwp8zzsfq-gradle-8.12.1"
+        "out": "/nix/store/cgcxbqg2w2il5y09mfi51hsgk80l9059-gradle-8.14.1"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -60,27 +51,27 @@
     {
       "attr_path": "gradle-unwrapped",
       "broken": false,
-      "derivation": "/nix/store/vnih2p86h82di50qzbdmf1975b286p93-gradle-8.12.1.drv",
+      "derivation": "/nix/store/xji31lnr1vdm0ja3i0fnwd9v4i0lsgkn-gradle-8.14.1.drv",
       "description": "Enterprise-grade build system",
       "install_id": "gradle-unwrapped",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "gradle-8.12.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "gradle-8.14.1",
       "pname": "gradle-unwrapped",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:27:13.531238Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:41:59.447792Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "8.12.1",
+      "version": "8.14.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/yngnckaf8lgi9l1zshcl1fqnsmac6wj2-gradle-8.12.1"
+        "out": "/nix/store/50xk14p1wsp6dhllgarq25knhya63837-gradle-8.14.1"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -89,27 +80,27 @@
     {
       "attr_path": "gradle-unwrapped",
       "broken": false,
-      "derivation": "/nix/store/wrnaqsm9087fqszy24jmp5mzg8dplg0n-gradle-8.12.1.drv",
+      "derivation": "/nix/store/q7n64jfn3ra382ihp0yzmck9x1yfj6ga-gradle-8.14.1.drv",
       "description": "Enterprise-grade build system",
       "install_id": "gradle-unwrapped",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "gradle-8.12.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "gradle-8.14.1",
       "pname": "gradle-unwrapped",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:42:58.413393Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:21.771167Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "8.12.1",
+      "version": "8.14.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/z27nn3k8kc2lv2v34fnccq7ccdllbl6g-gradle-8.12.1"
+        "out": "/nix/store/8cyjbvn61bs9bpvyjzqx3bs64z9q4zf1-gradle-8.14.1"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -118,27 +109,27 @@
     {
       "attr_path": "gradle-unwrapped",
       "broken": false,
-      "derivation": "/nix/store/qygklnlhbpmiy476dmp0dc8p1ll2s9mc-gradle-8.12.1.drv",
+      "derivation": "/nix/store/s2122rscxhav2zysz3vhxs2l25qijgyr-gradle-8.14.1.drv",
       "description": "Enterprise-grade build system",
       "install_id": "gradle-unwrapped",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "gradle-8.12.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "gradle-8.14.1",
       "pname": "gradle-unwrapped",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T02:01:43.463615Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:42.887345Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "8.12.1",
+      "version": "8.14.1",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/vkpizp88ax0x0bh0yqs2g4b6ncqazv52-gradle-8.12.1"
+        "out": "/nix/store/csfpiv65s2iaf09iabv4pma48h6zsqz9-gradle-8.14.1"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -147,17 +138,17 @@
     {
       "attr_path": "jdk",
       "broken": false,
-      "derivation": "/nix/store/00yq712qxcgfm7fa94w6jp7z8jarv6bd-zulu-ca-jdk-21.0.4.drv",
+      "derivation": "/nix/store/29s7kwm81q9b3xjfh1jfvvnw7fvqllj5-zulu-ca-jdk-21.0.4.drv",
       "description": "Certified builds of OpenJDK",
       "install_id": "jdk",
       "license": "GPL-2.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "zulu-ca-jdk-21.0.4",
       "pname": "jdk",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:09:58.304604Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:51.857457Z",
       "stabilities": [
         "unstable"
       ],
@@ -167,7 +158,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/nz43fcs7v4iqw62p729yv2dcv6v2xv98-zulu-ca-jdk-21.0.4"
+        "out": "/nix/store/jmhshhi0720cwzilhl8amh7cqgc5x30n-zulu-ca-jdk-21.0.4"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -176,28 +167,28 @@
     {
       "attr_path": "jdk",
       "broken": false,
-      "derivation": "/nix/store/1g2f8a6zdzngrngg8rawy0qzkhr3skbx-openjdk-21.0.5+11.drv",
+      "derivation": "/nix/store/bzav35la4cmianza10yg58khzjl5x53j-openjdk-21.0.7+6.drv",
       "description": "Open-source Java Development Kit",
       "install_id": "jdk",
       "license": "GPL-2.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "openjdk-21.0.5+11",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "openjdk-21.0.7+6",
       "pname": "jdk",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:27:14.469562Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:42:00.531326Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "21.0.5+11",
+      "version": "21.0.7+6",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/zvapyfzz29fkivhz6rw4wv7b3vaxip9j-openjdk-21.0.5+11-debug",
-        "out": "/nix/store/z570wmvkvbqdpl06ww9gxbjj9m3asap2-openjdk-21.0.5+11"
+        "debug": "/nix/store/nh6k0hczb384iac0sc24m5a41ywkwkv4-openjdk-21.0.7+6-debug",
+        "out": "/nix/store/21ns0zdnvihkg77hjidyb0b748dqyh0d-openjdk-21.0.7+6"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -206,17 +197,17 @@
     {
       "attr_path": "jdk",
       "broken": false,
-      "derivation": "/nix/store/q2f9nasyfpavfzzvpj6h5w1ncgbhap84-zulu-ca-jdk-21.0.4.drv",
+      "derivation": "/nix/store/yyzlwdjc4gigf6wmvhigrqr3whzd3vy9-zulu-ca-jdk-21.0.4.drv",
       "description": "Certified builds of OpenJDK",
       "install_id": "jdk",
       "license": "GPL-2.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "zulu-ca-jdk-21.0.4",
       "pname": "jdk",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:42:58.698719Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:22.113049Z",
       "stabilities": [
         "unstable"
       ],
@@ -226,7 +217,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/lz2g4f5b290w2npdzxwxa6q3zkzrc114-zulu-ca-jdk-21.0.4"
+        "out": "/nix/store/z384a83i046507nr7slv2p1qvdssyn9m-zulu-ca-jdk-21.0.4"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -235,28 +226,28 @@
     {
       "attr_path": "jdk",
       "broken": false,
-      "derivation": "/nix/store/1irzv88cqn2y1g0v44hnkhk37546s5k1-openjdk-21.0.5+11.drv",
+      "derivation": "/nix/store/k96s4nfzik0dx24i4ci1kcbps3vsj8as-openjdk-21.0.7+6.drv",
       "description": "Open-source Java Development Kit",
       "install_id": "jdk",
       "license": "GPL-2.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "openjdk-21.0.5+11",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "openjdk-21.0.7+6",
       "pname": "jdk",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T02:01:44.488362Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:44.081180Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "21.0.5+11",
+      "version": "21.0.7+6",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/4fqiqd5m998l6aj4xqjhmks9gq8fvf9h-openjdk-21.0.5+11-debug",
-        "out": "/nix/store/55qm2mvhmv7n2n6yzym1idrvnlwia73z-openjdk-21.0.5+11"
+        "debug": "/nix/store/qkprsqd8fb5q3h7jfr9gyj1q34ypvdji-openjdk-21.0.7+6-debug",
+        "out": "/nix/store/qagnl38l96xcbx17ll0v9zswhcl1nqw6-openjdk-21.0.7+6"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
