@@ -14,5 +14,17 @@ command = """
 version = "0.0.1"
 description = "A simple php app that prints a random quote from a list of quotes."
 
+[build.quotes-app-php-pure]
+command = """
+   mkdir -p $out/{lib,bin} 
+   cp -pr * $out/lib
+   echo "#!/usr/bin/env sh" > $out/bin/quotes-app-php
+   echo "cd $out/lib && exec php -S localhost:3000" >> $out/bin/quotes-app-php
+   chmod 755 $out/bin/*
+"""
+sandbox = "pure"
+version = "0.0.1"
+description = "A simple php app that prints a random quote from a list of quotes."
+
 [services]
 quotes-php.command = "php -S localhost:8000"
