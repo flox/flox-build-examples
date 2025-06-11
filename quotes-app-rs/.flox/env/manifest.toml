@@ -33,3 +33,13 @@ description = "A simple quotes server"
 version = "0.1.0"
 runtime-packages = ["libiconv"]
 
+[build.quotes-app-rs-pure]
+command = '''
+  mkdir -p $out/bin
+  cargo build --release
+  cp target/release/quotes-app-rs $out/bin/quotes-app-rs
+'''
+description = "A simple quotes server"
+version = "0.1.0"
+sandbox = "pure"
+runtime-packages = ["libiconv"]

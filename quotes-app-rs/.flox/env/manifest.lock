@@ -48,6 +48,15 @@
         ],
         "version": "0.1.0",
         "description": "A simple quotes server"
+      },
+      "quotes-app-rs-pure": {
+        "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs\n",
+        "runtime-packages": [
+          "libiconv"
+        ],
+        "sandbox": "pure",
+        "version": "0.1.0",
+        "description": "A simple quotes server"
       }
     }
   },
