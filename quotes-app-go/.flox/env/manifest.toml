@@ -16,8 +16,10 @@ version = 1
 ## -------------------------------------------------------------------
 [install]
 go.pkg-path = "go"
-# gum.pkg-path = "gum"
-# gum.version = "^0.14.5"
+# Runtime dependencies for a Go-built binary that are normally transient.
+iana-etc.pkg-path = "iana-etc"
+mailcap.pkg-path = "mailcap"
+tzdata.pkg-path = "tzdata"
 
 
 ## Environment Variables ---------------------------------------------
@@ -68,7 +70,11 @@ command = """
   chmod +x $out/bin/quotes-app-go
 """
 # once the program is built, we no longer need "go" in the environment
-runtime-packages = [ ]
+runtime-packages = [
+  "iana-etc",
+  "mailcap",
+  "tzdata",
+]
 
 
 ## Services ----------------------------------------------------------
