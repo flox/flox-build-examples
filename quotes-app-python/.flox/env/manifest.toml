@@ -11,7 +11,11 @@ on-activate = """
 
   # Setup a Python virtual environment
 
-  export POETRY_VIRTUALENVS_PATH="$FLOX_ENV_CACHE/poetry/virtualenvs"
+  if [ -z "${FLOX_ENV_CACHE:-}" ]; then
+    export POETRY_VIRTUALENVS_PATH="$out"
+  else
+    export POETRY_VIRTUALENVS_PATH="$FLOX_ENV_CACHE/poetry/virtualenvs"
+  fi
 
   if [ -z "$(poetry env info --path)" ]; then
     echo "Creating poetry virtual environment in $POETRY_VIRTUALENVS_PATH"
@@ -70,6 +74,7 @@ command = """
   export POETRY_VIRTUALENVS_PATH=$out
   export POETRY_VIRTUALENVS_IN_PROJECT=false
   export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true
+  echo "VENV_PATH is $POETRY_VIRTUALENVS_PATH"
   poetry install
 
   # Symlink any executables from the virtualenv.
@@ -77,6 +82,26 @@ command = """
   cd $out/bin
   ln -s ../*/bin/quotes-app-python .
 """
+runtime-packages = [
+  "python3",
+]
+
+[build.quotes-app-python-pure]
+description = "A simple Python app that prints a random quote from a list of quotes."
+version = "0.0.1"
+command = """
+  # Install to a new virtualenv.
+  export POETRY_VIRTUALENVS_PATH=$out
+  export POETRY_VIRTUALENVS_IN_PROJECT=false
+  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true
+  poetry install
+
+  # Symlink any executables from the virtualenv.
+  mkdir -p "${out}/bin"
+  cd $out/bin
+  ln -s ../*/bin/quotes-app-python .
+"""
+sandbox = "pure"
 runtime-packages = [
   "python3",
 ]
