@@ -33,7 +33,7 @@
     },
     "build": {
       "quotes-app-go": {
-        "command": "  mkdir -p $out/{lib,bin}\n  cp -pr quotes.json $out/lib\n\tgo mod tidy\n  go build -o $out/bin/quotes-app-go main.go\n  chmod +x $out/bin/quotes-app-go\n",
+        "command": "  mkdir -p $out/{lib,bin}\n  cp -pr quotes.json $out/lib\n\tgo mod tidy\n  go build -trimpath -o $out/bin/quotes-app-go main.go\n  chmod +x $out/bin/quotes-app-go\n",
         "runtime-packages": [
           "iana-etc",
           "mailcap",
