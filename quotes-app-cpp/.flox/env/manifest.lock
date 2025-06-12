@@ -16,16 +16,7 @@
         "pkg-path": "gnumake"
       }
     },
-    "hook": {},
-    "profile": {},
-    "options": {
-      "systems": [
-        "aarch64-darwin",
-        "aarch64-linux",
-        "x86_64-darwin",
-        "x86_64-linux"
-      ]
-    },
+    "options": {},
     "services": {
       "quotes-cpp": {
         "command": "./quotes-cpp"
@@ -46,19 +37,18 @@
     {
       "attr_path": "boost",
       "broken": false,
-      "derivation": "/nix/store/4cy864q6g0dqx5czj0prcnfnn71slb9f-boost-1.87.0.drv",
+      "derivation": "/nix/store/763v465gyn4m6xc0zyw87khq4llcs1ky-boost-1.87.0.drv",
       "description": "Collection of C++ libraries",
       "install_id": "boost",
       "license": "BSL-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "boost-1.87.0",
       "pname": "boost",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:11:24.408364Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:50.644981Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -67,8 +57,8 @@
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/czfchpq795yyp8rrkha5316gpf6bfnx2-boost-1.87.0-dev",
-        "out": "/nix/store/27yc7mwws2yj041zq1gfvhqnv309gwjq-boost-1.87.0"
+        "dev": "/nix/store/k2cd7msx44va0p87xz5b3pyff4x6kynp-boost-1.87.0-dev",
+        "out": "/nix/store/r9myvhgdwr5q5zkdixhhc1acy3qhvsmy-boost-1.87.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -77,19 +67,18 @@
     {
       "attr_path": "boost",
       "broken": false,
-      "derivation": "/nix/store/q0myrz7y07v67dqv2msmdmzxi6z53qdh-boost-1.87.0.drv",
+      "derivation": "/nix/store/pwc7r5gair4nhcgkw8ra7r6193wnris7-boost-1.87.0.drv",
       "description": "Collection of C++ libraries",
       "install_id": "boost",
       "license": "BSL-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "boost-1.87.0",
       "pname": "boost",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:28:02.766935Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:41:57.738933Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -98,8 +87,8 @@
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/kq60x0wz9pd2mhpdy8z4h69yihfin6kh-boost-1.87.0-dev",
-        "out": "/nix/store/0s4qn0df1s2c913917nkj7v073gbaqsa-boost-1.87.0"
+        "dev": "/nix/store/nrvq2hnxy78z1lja6yiimc4izgk4871c-boost-1.87.0-dev",
+        "out": "/nix/store/9cfnd9zdssljyb80l0z0c8l66az2f9xw-boost-1.87.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -108,19 +97,18 @@
     {
       "attr_path": "boost",
       "broken": false,
-      "derivation": "/nix/store/g47bbzd8rgqspifwwq5x675w0vkmb9yx-boost-1.87.0.drv",
+      "derivation": "/nix/store/4qb788n2h1427pakc2pfvm65ayvxa4xx-boost-1.87.0.drv",
       "description": "Collection of C++ libraries",
       "install_id": "boost",
       "license": "BSL-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "boost-1.87.0",
       "pname": "boost",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:43:35.499157Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:20.868427Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -129,8 +117,8 @@
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/7c8ziwi43p43hz3zfkkd526q4xldihhr-boost-1.87.0-dev",
-        "out": "/nix/store/iah23xkmn3kfqw7xlks4w2yhj5hl09py-boost-1.87.0"
+        "dev": "/nix/store/aknqrg3lb97b099cacmbl8217yljg67r-boost-1.87.0-dev",
+        "out": "/nix/store/hajw23p16ffzq487jlbqz8h6glgwfcpi-boost-1.87.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -139,19 +127,18 @@
     {
       "attr_path": "boost",
       "broken": false,
-      "derivation": "/nix/store/hrxhzxw6gm772bq10zwigql5ssgagv0i-boost-1.87.0.drv",
+      "derivation": "/nix/store/v0r68wxkv10bf925qy951j32kfy8wybm-boost-1.87.0.drv",
       "description": "Collection of C++ libraries",
       "install_id": "boost",
       "license": "BSL-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "boost-1.87.0",
       "pname": "boost",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T02:01:51.598857Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:40.968105Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -160,8 +147,8 @@
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/1yvb11frfk0nrhkz142l43a93yzwz3il-boost-1.87.0-dev",
-        "out": "/nix/store/54wr0cn0c6vsybjdlhm82d6cd2cz5s7g-boost-1.87.0"
+        "dev": "/nix/store/ammv4hfx001g454rn0dlgibj1imn9rkw-boost-1.87.0-dev",
+        "out": "/nix/store/grpscx1ba72r34zbdkq8im08xmjrkad0-boost-1.87.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -170,19 +157,18 @@
     {
       "attr_path": "clang",
       "broken": false,
-      "derivation": "/nix/store/smyq0qynb5kgbmrbc69zhn14vxhzai4w-clang-wrapper-19.1.7.drv",
+      "derivation": "/nix/store/l5l5gsvjqqnr4vwvg6jygqr9409jf7ml-clang-wrapper-19.1.7.drv",
       "description": "C language family frontend for LLVM (wrapper script)",
       "install_id": "clang",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-wrapper-19.1.7",
       "pname": "clang",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:11:24.564512Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:50.800072Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -191,7 +177,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/5qawh29l2yhzj0l9a7ybbb3nzwkpis4a-clang-wrapper-19.1.7"
+        "out": "/nix/store/cvhbqa01i5yy7xmmpqp1hbnvq7kpvgsx-clang-wrapper-19.1.7"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -200,19 +186,18 @@
     {
       "attr_path": "clang",
       "broken": false,
-      "derivation": "/nix/store/8ppmikji4s2xxaaa3x7wr9ci2gw43c0w-clang-wrapper-19.1.7.drv",
+      "derivation": "/nix/store/yjjbzl8z4r2ya5vypj9i5yxfcn53pgsj-clang-wrapper-19.1.7.drv",
       "description": "C language family frontend for LLVM (wrapper script)",
       "install_id": "clang",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-wrapper-19.1.7",
       "pname": "clang",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:28:02.985782Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:41:57.950736Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -221,7 +206,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/jdfxhsmslm5ipvfmhc250awawwv8r2j8-clang-wrapper-19.1.7"
+        "out": "/nix/store/vp6zgsnwkqjn89lgdkizr2vpxp6zvv9m-clang-wrapper-19.1.7"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -230,19 +215,18 @@
     {
       "attr_path": "clang",
       "broken": false,
-      "derivation": "/nix/store/ak13d218brm3gk8l5wj2139063zzk04h-clang-wrapper-19.1.7.drv",
+      "derivation": "/nix/store/0z1jb53aac4kr850x6zadkdnb3dhasff-clang-wrapper-19.1.7.drv",
       "description": "C language family frontend for LLVM (wrapper script)",
       "install_id": "clang",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-wrapper-19.1.7",
       "pname": "clang",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:43:35.653855Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:21.025178Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -251,7 +235,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/zv9wm6xdbdc2vdscj1k1xfr2nyjxp10p-clang-wrapper-19.1.7"
+        "out": "/nix/store/cm1kj0v0xpsql7fww3hv7f3z930k2fnw-clang-wrapper-19.1.7"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -260,19 +244,18 @@
     {
       "attr_path": "clang",
       "broken": false,
-      "derivation": "/nix/store/ws6np3wr34yczinj4jq07ar8j28k860w-clang-wrapper-19.1.7.drv",
+      "derivation": "/nix/store/g6xp2vv856rgg5q0lvcac2wwx6lspb6z-clang-wrapper-19.1.7.drv",
       "description": "C language family frontend for LLVM (wrapper script)",
       "install_id": "clang",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-wrapper-19.1.7",
       "pname": "clang",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T02:01:51.825066Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:41.199891Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -281,7 +264,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/q87df3dw0x7r1k9gagir9a5sdi3gmw4a-clang-wrapper-19.1.7"
+        "out": "/nix/store/fmysfy9gl5d59yir4fksi29wz10maljg-clang-wrapper-19.1.7"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -290,19 +273,18 @@
     {
       "attr_path": "clang-tools",
       "broken": false,
-      "derivation": "/nix/store/dqf4m8ynlbcynqfxz4s98qpsj4a3p4ki-clang-tools-19.1.7.drv",
+      "derivation": "/nix/store/dbvq8i603mnjwvz50j0bxrqn0wi1pjvc-clang-tools-19.1.7.drv",
       "description": "Standalone command line tools for C++ development",
       "install_id": "clang-tools",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-tools-19.1.7",
       "pname": "clang-tools",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:11:24.565052Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:50.800618Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -311,7 +293,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/w9nsgv4q992vzxz0iwcd1835fdkxv9az-clang-tools-19.1.7"
+        "out": "/nix/store/d12c7ny0s98iiycg0b2a4pdqn6fg97a2-clang-tools-19.1.7"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -320,19 +302,18 @@
     {
       "attr_path": "clang-tools",
       "broken": false,
-      "derivation": "/nix/store/wz93h5073mhxggalrbq10fyap1y7rb37-clang-tools-19.1.7.drv",
+      "derivation": "/nix/store/nql9v8p5fqp5kq0wrfy87rbf4y8zlz4k-clang-tools-19.1.7.drv",
       "description": "Standalone command line tools for C++ development",
       "install_id": "clang-tools",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-tools-19.1.7",
       "pname": "clang-tools",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:28:02.986408Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:41:57.951360Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -341,7 +322,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/vqcmbwh0cx2vqb1apajs67jbx53j5vhp-clang-tools-19.1.7"
+        "out": "/nix/store/dkkmczwslzdvk128sfvmp9xgrg0s2yby-clang-tools-19.1.7"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -350,19 +331,18 @@
     {
       "attr_path": "clang-tools",
       "broken": false,
-      "derivation": "/nix/store/ac6ffhd5zlbab8iyvc7w2p3p0d6bsn8l-clang-tools-19.1.7.drv",
+      "derivation": "/nix/store/fnw364d0xq1yr5csys8mbwywv4zdawpw-clang-tools-19.1.7.drv",
       "description": "Standalone command line tools for C++ development",
       "install_id": "clang-tools",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-tools-19.1.7",
       "pname": "clang-tools",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:43:35.654409Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:21.025720Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -371,7 +351,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/fcf94fzdv0l2g9sypm2mv6k1qi558cyn-clang-tools-19.1.7"
+        "out": "/nix/store/22h6pcivzrx1nzrkxjgwy0j0n7mcidd4-clang-tools-19.1.7"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -380,19 +360,18 @@
     {
       "attr_path": "clang-tools",
       "broken": false,
-      "derivation": "/nix/store/96g8pysx4gimimd3qj1xvjlw9zh2jvxw-clang-tools-19.1.7.drv",
+      "derivation": "/nix/store/p3f6wpda2lac38yhppjb5cz8qvjwk7km-clang-tools-19.1.7.drv",
       "description": "Standalone command line tools for C++ development",
       "install_id": "clang-tools",
       "license": "[ NCSA, Apache-2.0, LLVM-exception ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "clang-tools-19.1.7",
       "pname": "clang-tools",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T02:01:51.825719Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:41.200553Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -401,7 +380,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/lksd9rqdydlm486bihrgk4yh44f03l62-clang-tools-19.1.7"
+        "out": "/nix/store/06gf7f983rjm28pmycy732hdj4i7x0v8-clang-tools-19.1.7"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -410,19 +389,18 @@
     {
       "attr_path": "gnumake",
       "broken": false,
-      "derivation": "/nix/store/z0vyvvm3cqlwx4wxm7vs3y2n0yvb13l5-gnumake-4.4.1.drv",
+      "derivation": "/nix/store/0z9w4hr3wkrs4fdrk0h42isxzhxxlbi5-gnumake-4.4.1.drv",
       "description": "Tool to control the generation of non-source files from sources",
       "install_id": "gnumake",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "gnumake-4.4.1",
       "pname": "gnumake",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:11:25.160303Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:23:51.430490Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -432,9 +410,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/c5jccx4albc6g0fcxa4ghwg27945fnby-gnumake-4.4.1-info",
-        "man": "/nix/store/mvygvl0jxvci87m9j9r393ri5jsz2ybq-gnumake-4.4.1-man",
-        "out": "/nix/store/cnkfqpa3kyi3mgk0yd8lqbrdysq7j38q-gnumake-4.4.1"
+        "info": "/nix/store/4ykdx0lpl2dn8knnab0bap11prr7zzky-gnumake-4.4.1-info",
+        "man": "/nix/store/x59n9rzr26vf9cr0aapfakhrqhg7vy18-gnumake-4.4.1-man",
+        "out": "/nix/store/wkq7f52a2xq4n24f545wy2fidm4z14f2-gnumake-4.4.1"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -443,19 +421,18 @@
     {
       "attr_path": "gnumake",
       "broken": false,
-      "derivation": "/nix/store/d3wschhaqb4bwzzy11wsr7a1xxhv5krs-gnumake-4.4.1.drv",
+      "derivation": "/nix/store/pya8baigzsh8ddrq9zhwn3ppk07qihmh-gnumake-4.4.1.drv",
       "description": "Tool to control the generation of non-source files from sources",
       "install_id": "gnumake",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "gnumake-4.4.1",
       "pname": "gnumake",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:28:04.274163Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:41:59.295493Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -465,10 +442,10 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/yrfbzz0whhvibv18f2zb6a4l671ryrdk-gnumake-4.4.1-debug",
-        "info": "/nix/store/crfkqwk94z3mvshp5yigwgayxypr7rzr-gnumake-4.4.1-info",
-        "man": "/nix/store/a5lgpaf6b9rm3czp8bv6fw84152rsk08-gnumake-4.4.1-man",
-        "out": "/nix/store/jp96c7glhd39jvym2qxrrqbyjlbn4jg8-gnumake-4.4.1"
+        "debug": "/nix/store/wwhf09gg8ddpl4c6mx70pk3r3a6qx95r-gnumake-4.4.1-debug",
+        "info": "/nix/store/8wcb953rsjvp2ybi7iig6hjls48w87dj-gnumake-4.4.1-info",
+        "man": "/nix/store/f6b4ph7wflz6ylw3lylbiqrr72xs9jw5-gnumake-4.4.1-man",
+        "out": "/nix/store/946sh8bs8hrlrb4jhwxqzllr37zb2q0y-gnumake-4.4.1"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -477,19 +454,18 @@
     {
       "attr_path": "gnumake",
       "broken": false,
-      "derivation": "/nix/store/4843xfb5xlx9nwjm9l74ggkg9df50308-gnumake-4.4.1.drv",
+      "derivation": "/nix/store/dla3vbdflxl9qwj4hvq2mn4xbsfic3gm-gnumake-4.4.1.drv",
       "description": "Tool to control the generation of non-source files from sources",
       "install_id": "gnumake",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "gnumake-4.4.1",
       "pname": "gnumake",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T01:43:36.286158Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:21.682451Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -499,9 +475,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/sqzsgjrslilvvs25b1rwkxr0vqwgy4n5-gnumake-4.4.1-info",
-        "man": "/nix/store/xk3mk8ilcibjnh3yhakmii8drsxy25p3-gnumake-4.4.1-man",
-        "out": "/nix/store/yfkp7d7jj5m467qrss5p1c26j8pbqmx9-gnumake-4.4.1"
+        "info": "/nix/store/14vf2zb0z70c67k2nzyqaz8b9rfjy73r-gnumake-4.4.1-info",
+        "man": "/nix/store/22x6iviphcn6zlbvhihbvws00iavf9aj-gnumake-4.4.1-man",
+        "out": "/nix/store/1fd85ai3984ah9cy31c7m1fn6i2mm66s-gnumake-4.4.1"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -510,19 +486,18 @@
     {
       "attr_path": "gnumake",
       "broken": false,
-      "derivation": "/nix/store/r2xhnjg5n3mnly8b7l91jjfza4qdrsjh-gnumake-4.4.1.drv",
+      "derivation": "/nix/store/yhc71a2s1xkzgv9x20nyyrc5c9z9nc14-gnumake-4.4.1.drv",
       "description": "Tool to control the generation of non-source files from sources",
       "install_id": "gnumake",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
       "name": "gnumake-4.4.1",
       "pname": "gnumake",
-      "rev": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "rev_count": 782401,
-      "rev_date": "2025-04-12T13:19:24Z",
-      "scrape_date": "2025-04-14T02:01:53.276004Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:17:42.721398Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -532,10 +507,10 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/40rj5d3igp9fb80r4pg3gnkzj338rffa-gnumake-4.4.1-debug",
-        "info": "/nix/store/33lvx5blf6ms1b6ynaln49hx1xksypxf-gnumake-4.4.1-info",
-        "man": "/nix/store/y87b22iwv64wrfpgyii4gjgbhcfqq0mi-gnumake-4.4.1-man",
-        "out": "/nix/store/k0hhyz6qnj5065vpw15m4r7nbs0mn706-gnumake-4.4.1"
+        "debug": "/nix/store/c59bxh8h9rnpp3l7y8i8zirpvp703z8w-gnumake-4.4.1-debug",
+        "info": "/nix/store/xqygkvkp7cghyk66aivysnr88q24dsms-gnumake-4.4.1-info",
+        "man": "/nix/store/5g01b5r1dbk91kwy4jld5vc1asy0mir4-gnumake-4.4.1-man",
+        "out": "/nix/store/p7z72c2s722pbw31jmm3y0nwypksb5fj-gnumake-4.4.1"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
