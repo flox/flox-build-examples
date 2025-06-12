@@ -30,6 +30,15 @@
         ],
         "version": "0.0.1",
         "description": "Quotes app written in C++"
+      },
+      "quotes-app-cpp-pure": {
+        "command": "  mkdir -p $out/{bin,lib,libexec}\n  make\n  cp -pr quotes.json $out/lib\n  cp -pr quotes-app-cpp $out/libexec\n  echo \"#!/usr/bin/env sh\" > $out/bin/quotes-app-cpp\n  echo \"export QUOTES_FILE=$out/lib/quotes.json\" >> $out/bin/quotes-app-cpp\n  echo \"exec $out/libexec/quotes-app-cpp\" >> $out/bin/quotes-app-cpp\n  chmod +x $out/bin/quotes-app-cpp\n",
+        "runtime-packages": [
+          "boost"
+        ],
+        "sandbox": "pure",
+        "version": "0.0.1",
+        "description": "Quotes app written in C++"
       }
     }
   },
