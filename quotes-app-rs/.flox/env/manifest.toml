@@ -31,12 +31,12 @@ command = '''
 '''
 description = "A simple quotes server"
 version = "0.1.0"
-runtime-packages = ["libiconv"]
+runtime-packages = ["libiconv", "gcc"]
 
 [build.quotes-app-rs-pure]
 command = '''
   mkdir -p $out/bin
-  cargo build --release
+  cargo build --release --offline
   cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
 '''
 description = "A simple quotes server"

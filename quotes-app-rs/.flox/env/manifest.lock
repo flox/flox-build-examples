@@ -44,13 +44,14 @@
       "quotes-app-rs": {
         "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs\n",
         "runtime-packages": [
-          "libiconv"
+          "libiconv",
+          "gcc"
         ],
         "version": "0.1.0",
         "description": "A simple quotes server"
       },
       "quotes-app-rs-pure": {
-        "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure\n",
+        "command": "  mkdir -p $out/bin\n  cargo build --release --offline\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure\n",
         "runtime-packages": [
           "libiconv"
         ],
