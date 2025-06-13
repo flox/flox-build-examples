@@ -21,7 +21,7 @@
         "description": "A simple Ruby app that prints a random quote from a list of quotes."
       },
       "quotes-app-rb-pure": {
-        "command": "   bundle config set --local path ./vendor\n   bundle install\n   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib \n   mv $out/lib/quotes $out/bin/quotes-app-rb\n   # Remove things that are not needed in the final package\n\t rm -f $out/lib/.gitignore \n   rm -rf $out/lib/.flox\n",
+        "command": "   bundle config set --local path ./vendor\n   bundle install\n   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib \n   mv $out/lib/quotes $out/bin/quotes-app-rb-pure\n   # Remove things that are not needed in the final package\n\t rm -f $out/lib/.gitignore \n   rm -rf $out/lib/.flox\n",
         "sandbox": "pure",
         "version": "0.0.1",
         "description": "A simple Ruby app that prints a random quote from a list of quotes."

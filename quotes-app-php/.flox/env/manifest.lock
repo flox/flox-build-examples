@@ -20,7 +20,7 @@
         "description": "A simple php app that prints a random quote from a list of quotes."
       },
       "quotes-app-php-pure": {
-        "command": "   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib\n   echo \"#!/usr/bin/env sh\" > $out/bin/quotes-app-php\n   echo \"cd $out/lib && exec php -S localhost:3000\" >> $out/bin/quotes-app-php\n   chmod 755 $out/bin/*\n",
+        "command": "   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib\n   echo \"#!/usr/bin/env sh\" > $out/bin/quotes-app-php-pure\n   echo \"cd $out/lib && exec php -S localhost:3000\" >> $out/bin/quotes-app-php-pure\n   chmod 755 $out/bin/*\n",
         "sandbox": "pure",
         "version": "0.0.1",
         "description": "A simple php app that prints a random quote from a list of quotes."

@@ -30,10 +30,10 @@ command = """
   make
   cp -pr quotes.json $out/lib
   cp -pr quotes-app-cpp $out/libexec
-  echo "#!/usr/bin/env sh" > $out/bin/quotes-app-cpp
-  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-app-cpp
-  echo "exec $out/libexec/quotes-app-cpp" >> $out/bin/quotes-app-cpp
-  chmod +x $out/bin/quotes-app-cpp
+  echo "#!/usr/bin/env sh" > $out/bin/quotes-app-cpp-pure
+  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-app-cpp-pure
+  echo "exec $out/libexec/quotes-app-cpp" >> $out/bin/quotes-app-cpp-pure
+  chmod +x $out/bin/quotes-app-cpp-pure
 """
 sandbox = "pure"
 # Need libboost.dylib at runtime.

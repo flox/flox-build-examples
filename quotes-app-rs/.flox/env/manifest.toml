@@ -37,7 +37,7 @@ runtime-packages = ["libiconv"]
 command = '''
   mkdir -p $out/bin
   cargo build --release
-  cp target/release/quotes-app-rs $out/bin/quotes-app-rs
+  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
 '''
 description = "A simple quotes server"
 version = "0.1.0"

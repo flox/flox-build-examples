@@ -22,11 +22,11 @@ command = """
    # Build a fat jar with gradle using the shadowJar plugin
    gradle shadowJar
    mkdir -p $out/{lib,bin} && cp build/libs/*.jar $out/lib
-   echo '#!/usr/bin/env sh' > $out/bin/quotes-app-jvm
-   echo 'SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"' >> $out/bin/quotes-app-jvm
-   echo 'JAR_PATH="$SCRIPT_DIR/../lib/quotes-app-jvm-all.jar"' >> $out/bin/quotes-app-jvm
-   echo 'exec java -jar "$JAR_PATH" "$@"' >> $out/bin/quotes-app-jvm
-   chmod 755 $out/bin/quotes-app-jvm
+   echo '#!/usr/bin/env sh' > $out/bin/quotes-app-jvm-pure
+   echo 'SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"' >> $out/bin/quotes-app-jvm-pure
+   echo 'JAR_PATH="$SCRIPT_DIR/../lib/quotes-app-jvm-all.jar"' >> $out/bin/quotes-app-jvm-pure
+   echo 'exec java -jar "$JAR_PATH" "$@"' >> $out/bin/quotes-app-jvm-pure
+   chmod 755 $out/bin/quotes-app-jvm-pure
 """
 description = "A quotes app written in kotlin"
 sandbox = "pure"

@@ -34,9 +34,9 @@ command = """
    pushd $out/lib
    npm install --omit=dev
    popd
-   echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs
-   echo "exec node $out/lib/app.js" >> $out/bin/quotes-app-nodejs
-   chmod 755 $out/bin/quotes-app-nodejs
+   echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs-pure
+   echo "exec node $out/lib/app.js" >> $out/bin/quotes-app-nodejs-pure
+   chmod 755 $out/bin/quotes-app-nodejs-pure
 """
 description = "A quotes app written in nodejs"
 version = "0.0.1"

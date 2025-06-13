@@ -18,8 +18,8 @@ description = "A simple php app that prints a random quote from a list of quotes
 command = """
    mkdir -p $out/{lib,bin} 
    cp -pr * $out/lib
-   echo "#!/usr/bin/env sh" > $out/bin/quotes-app-php
-   echo "cd $out/lib && exec php -S localhost:3000" >> $out/bin/quotes-app-php
+   echo "#!/usr/bin/env sh" > $out/bin/quotes-app-php-pure
+   echo "cd $out/lib && exec php -S localhost:3000" >> $out/bin/quotes-app-php-pure
    chmod 755 $out/bin/*
 """
 sandbox = "pure"

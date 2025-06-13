@@ -99,7 +99,7 @@ command = """
   # Symlink any executables from the virtualenv.
   mkdir -p "${out}/bin"
   cd $out/bin
-  ln -s ../*/bin/quotes-app-python .
+  ln -s ../*/bin/quotes-app-python-pure .
 """
 sandbox = "pure"
 runtime-packages = [
