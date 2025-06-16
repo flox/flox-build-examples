@@ -17,8 +17,8 @@ jar:
 	@echo "Build is at ./build/libs/quotes-app-jvm-all.jar"
 
 clean:
-	gradle clean
-	gradle --stop || true
+	@command -v gradle >/dev/null && gradle clean || true
+	@command -v gradle >/dev/null && gradle --stop || true
 	rm -rf build .gradle
 	@$(FLOXBIN) build clean
 
