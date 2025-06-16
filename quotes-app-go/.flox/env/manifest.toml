@@ -59,13 +59,22 @@ tzdata.pkg-path = "tzdata"
 # zsh  = ...
 # fish = ...
 
+[build.quotes-app-go-deps]
+sandbox = "off"
+command = """
+mkdir -p $out
+export GOMODCACHE=$out
+go mod download -modcacherw
+"""
+
 [build.quotes-app-go]
 version = "0.0.1"
 description = "Quotes App written in Go"
 command = """
   mkdir -p $out/{lib,bin}
   cp -pr quotes.json $out/lib
-	go mod tidy
+  export GOMODCACHE=${quotes-app-go-deps}
+  go mod tidy
   go build -trimpath -o $out/bin/quotes-app-go main.go
   chmod +x $out/bin/quotes-app-go
 """
