@@ -23,10 +23,6 @@ libiconv = { pkg-path = "libiconv" }
 # to match versions
 rust-analyzer = { pkg-path = "rust-analyzer", pkg-group = "extra" }
 
-[vars]
-
-[hook]
-
 [build.quotes-app-rs]
 command = '''
   mkdir -p $out/bin
@@ -35,7 +31,15 @@ command = '''
 '''
 description = "A simple quotes server"
 version = "0.1.0"
-runtime-packages = ["libiconv"]
+runtime-packages = ["libiconv", "gcc"]
 
-[options]
-systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]
+[build.quotes-app-rs-pure]
+command = '''
+  mkdir -p $out/bin
+  cargo build --release --offline
+  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
+'''
+description = "A simple quotes server"
+version = "0.1.0"
+sandbox = "pure"
+runtime-packages = ["libiconv"]

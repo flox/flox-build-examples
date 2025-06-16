@@ -13,18 +13,16 @@
     "hook": {
       "on-activate": "    unset CPATH\n"
     },
-    "profile": {},
-    "options": {
-      "systems": [
-        "aarch64-darwin",
-        "aarch64-linux",
-        "x86_64-darwin",
-        "x86_64-linux"
-      ]
-    },
+    "options": {},
     "build": {
       "quotes-app-rb": {
         "command": "   bundle config set --local path ./vendor\n   bundle install\n   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib \n   mv $out/lib/quotes $out/bin/quotes-app-rb\n   # Remove things that are not needed in the final package\n\t rm -f $out/lib/.gitignore \n   rm -rf $out/lib/.flox\n",
+        "version": "0.0.1",
+        "description": "A simple Ruby app that prints a random quote from a list of quotes."
+      },
+      "quotes-app-rb-pure": {
+        "command": "   bundle config set --local path ./vendor\n   bundle install\n   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib \n   mv $out/lib/quotes $out/bin/quotes-app-rb-pure\n   # Remove things that are not needed in the final package\n\t rm -f $out/lib/.gitignore \n   rm -rf $out/lib/.flox\n",
+        "sandbox": "pure",
         "version": "0.0.1",
         "description": "A simple Ruby app that prints a random quote from a list of quotes."
       }
@@ -34,28 +32,28 @@
     {
       "attr_path": "ruby",
       "broken": false,
-      "derivation": "/nix/store/yf4vwyzg386jqkxn292qbxzm76hham03-ruby-3.3.6.drv",
+      "derivation": "/nix/store/f70whcr72q06gmnmc6s64j4r148i8asd-ruby-3.3.8.drv",
       "description": "Object-oriented language for quick and easy programming",
       "install_id": "ruby",
       "license": "Ruby",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "ruby-3.3.6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "ruby-3.3.8",
       "pname": "ruby",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:10:25.208130Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:24:20.615044Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.3.6",
+      "version": "3.3.8",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "devdoc": "/nix/store/ssl3q25x34dzbska7h8nwnhr5c4yhi9y-ruby-3.3.6-devdoc",
-        "out": "/nix/store/1vl1vibk1q0jg4305mmkn691k7nipm86-ruby-3.3.6"
+        "devdoc": "/nix/store/yskdfix70crbglrask279irgiv452gxm-ruby-3.3.8-devdoc",
+        "out": "/nix/store/lhrxdn23b0mhpq78ki2n3imb32c51xp9-ruby-3.3.8"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -64,28 +62,28 @@
     {
       "attr_path": "ruby",
       "broken": false,
-      "derivation": "/nix/store/6za1vax1fpl3x88jqpg0y958jk5assb8-ruby-3.3.6.drv",
+      "derivation": "/nix/store/mh6blbcwm88fhirblgw9xlkmi5l38gaw-ruby-3.3.8.drv",
       "description": "Object-oriented language for quick and easy programming",
       "install_id": "ruby",
       "license": "Ruby",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "ruby-3.3.6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "ruby-3.3.8",
       "pname": "ruby",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:28:00.924535Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:42:51.179861Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.3.6",
+      "version": "3.3.8",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "devdoc": "/nix/store/0s1agbfy6vsg2s4yz1lg2hwnm2b10dvr-ruby-3.3.6-devdoc",
-        "out": "/nix/store/kz840qiahn5dzj5ma33ya2flavc2xdw3-ruby-3.3.6"
+        "devdoc": "/nix/store/wy1wz3n27n43pnbaycfq9d1s7wjiy0wv-ruby-3.3.8-devdoc",
+        "out": "/nix/store/33nppwhlzcva2mizibic9jybllvnj12n-ruby-3.3.8"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -94,28 +92,28 @@
     {
       "attr_path": "ruby",
       "broken": false,
-      "derivation": "/nix/store/1l5qhsyn7i2hmzr1m3nyslyh0ban6man-ruby-3.3.6.drv",
+      "derivation": "/nix/store/7y5h6yhb4s80r3pyq0paid3xbzz4dp3b-ruby-3.3.8.drv",
       "description": "Object-oriented language for quick and easy programming",
       "install_id": "ruby",
       "license": "Ruby",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "ruby-3.3.6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "ruby-3.3.8",
       "pname": "ruby",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T01:43:24.749107Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T04:58:50.608951Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.3.6",
+      "version": "3.3.8",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "devdoc": "/nix/store/zkwc0vscv5j6jf8kjzaszcmrb4wwq98f-ruby-3.3.6-devdoc",
-        "out": "/nix/store/lldwfqrdyl4z0ahvd5djd2x87pdbvq2q-ruby-3.3.6"
+        "devdoc": "/nix/store/r4nm3wvjqvl4393caz0visq1b2ribnpl-ruby-3.3.8-devdoc",
+        "out": "/nix/store/25f5x4dzgwmr0cpbzq3asrnchj6kjdcj-ruby-3.3.8"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -124,28 +122,28 @@
     {
       "attr_path": "ruby",
       "broken": false,
-      "derivation": "/nix/store/6xlwvrkj9gqi2z15syfar8mc6cc3mqb6-ruby-3.3.6.drv",
+      "derivation": "/nix/store/4kbbb9qddll2rvqgq891fy13qh7pnbwc-ruby-3.3.8.drv",
       "description": "Object-oriented language for quick and easy programming",
       "install_id": "ruby",
       "license": "Ruby",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=698214a32beb4f4c8e3942372c694f40848b360d",
-      "name": "ruby-3.3.6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "name": "ruby-3.3.8",
       "pname": "ruby",
-      "rev": "698214a32beb4f4c8e3942372c694f40848b360d",
-      "rev_count": 773904,
-      "rev_date": "2025-03-25T07:53:30Z",
-      "scrape_date": "2025-03-27T02:02:34.838149Z",
+      "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+      "rev_count": 811950,
+      "rev_date": "2025-06-07T08:35:48Z",
+      "scrape_date": "2025-06-09T05:18:40.349120Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "3.3.6",
+      "version": "3.3.8",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "devdoc": "/nix/store/2h68kzh5bv60l4bq814r0my8brk93lcg-ruby-3.3.6-devdoc",
-        "out": "/nix/store/xk96lh29cjq0ak8zf89as6yk3wj7zh0x-ruby-3.3.6"
+        "devdoc": "/nix/store/z8z4ndssnskqg5lb1a4n16rswrqlggfh-ruby-3.3.8-devdoc",
+        "out": "/nix/store/9jslgkvdkn42hlc52mr25f37jsa5rxga-ruby-3.3.8"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
