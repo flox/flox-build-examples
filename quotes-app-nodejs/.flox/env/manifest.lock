@@ -18,7 +18,7 @@
     },
     "build": {
       "quotes-app-nodejs": {
-        "command": "   mkdir -p $out/{lib,bin} \n\t cp -pr package.* quotes.json app.js $out/lib\n   pushd $out/lib\n   npm install --omit=dev\n   popd\n   echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-app-nodejs\n   echo \"exec node $out/lib/app.js\" >> $out/bin/quotes-app-nodejs\n   chmod 755 $out/bin/quotes-app-nodejs\n",
+        "command": "    mkdir -p $out/{libexec,bin}\n\n    npm ci\n\n    # Build the application (creates `./dist`\n    npm run build\n\n    # Install `dist` to $out\n    cp -r ./dist $out\n\n    # Copy remaining runtime assets\n    cp quotes.json $out/dist\n\n    # # This example uses a bundler to create a self-sufficient `dist`\n    # # If your app needs additional node_modules at runtime,\n    # # `npm prune` and copy the node mudules to $out\n    # npm prune --include \"prod\"\n    # cp -r ./node_modules $out\n\n    echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-app-nodejs\n    echo \"exec node $out/dist/index.js $@\" >> $out/bin/quotes-app-nodejs\n    chmod 755 $out/bin/quotes-app-nodejs\n",
         "version": "0.0.1",
         "description": "A quotes app written in nodejs"
       },
