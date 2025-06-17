@@ -41,6 +41,10 @@
     },
     "options": {},
     "build": {
+      "deps": {
+        "command": "  mkdir -p $out/etc\n  cargo vendor $out/etc/vendor\n",
+        "description": "Vendored dependencies for the quotes server"
+      },
       "quotes-app-rs": {
         "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs\n",
         "runtime-packages": [
@@ -51,9 +55,10 @@
         "description": "A simple quotes server"
       },
       "quotes-app-rs-pure": {
-        "command": "  mkdir -p $out/bin\n  cargo build --release --offline\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure\n",
+        "command": "  # Tell cargo to use the vendored dependencies\n  mkdir .cargo\n  cat <<-'EOF' > .cargo/config.toml\n  [source.crates-io]\n  replace-with = \"vendored-sources\"\n\n  [source.vendored-sources]\n  directory = \"${deps}/etc/vendor\"\nEOF\n\n  # Perform the build\n  mkdir -p $out/bin\n  cargo build --release --offline\n  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure\n",
         "runtime-packages": [
-          "libiconv"
+          "libiconv",
+          "gcc"
         ],
         "sandbox": "pure",
         "version": "0.1.0",

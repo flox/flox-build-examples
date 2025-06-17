@@ -2,3 +2,4 @@ result-*
 environment
 envrc
 quotes-app-go/vendor
+quotes-app-rs/vendor

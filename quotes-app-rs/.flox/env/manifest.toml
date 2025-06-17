@@ -33,8 +33,30 @@ description = "A simple quotes server"
 version = "0.1.0"
 runtime-packages = ["libiconv", "gcc"]
 
+# This build vendors dependencies in a build with the sandbox off
+# so that we can use the network to fetch dependencies.
+[build.deps]
+command = '''
+  mkdir -p $out/etc
+  cargo vendor $out/etc/vendor
+'''
+description = "Vendored dependencies for the quotes server"
+
+# This build uses the vendored dependencies since the network is
+# unavailable with the sandbox turned on.
 [build.quotes-app-rs-pure]
 command = '''
+  # Tell cargo to use the vendored dependencies
+  mkdir .cargo
+  cat <<-'EOF' > .cargo/config.toml
+  [source.crates-io]
+  replace-with = "vendored-sources"
+
+  [source.vendored-sources]
+  directory = "${deps}/etc/vendor"
+EOF
+
+  # Perform the build
   mkdir -p $out/bin
   cargo build --release --offline
   cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
@@ -42,4 +64,4 @@ command = '''
 description = "A simple quotes server"
 version = "0.1.0"
 sandbox = "pure"
-runtime-packages = ["libiconv"]
+runtime-packages = ["libiconv", "gcc"]
