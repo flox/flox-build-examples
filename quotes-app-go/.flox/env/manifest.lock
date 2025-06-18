@@ -34,10 +34,10 @@
         "description": "Quotes App written in Go"
       },
       "quotes-app-go-deps": {
-        "command": "  mkdir -p $out/etc\n  cp -r ./vendor $out/etc/vendor\n  chmod +x $out\n"
+        "command": "  export GOMODCACHE=$out\n  go mod download -modcacherw\n"
       },
       "quotes-app-go-pure": {
-        "command": "  mkdir -p $out/{lib,bin}\n  cp -pr quotes.json $out/lib\n  cp -r ${quotes-app-go-deps}/etc/vendor ./vendor\n  go build -trimpath -o $out/bin/quotes-app-go-pure main.go\n  chmod +x $out/bin/quotes-app-go-pure\n",
+        "command": "  export GOMODCACHE=${quotes-app-go-deps}\n  mkdir -p $out/{lib,bin}\n  cp -pr quotes.json $out/lib\n  go build -trimpath -o $out/bin/quotes-app-go-pure main.go\n  chmod +x $out/bin/quotes-app-go-pure\n",
         "runtime-packages": [
           "iana-etc",
           "mailcap",

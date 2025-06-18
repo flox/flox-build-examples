@@ -25,18 +25,17 @@ runtime-packages = [
 
 [build.quotes-app-go-deps]
 command = '''
-  mkdir -p $out/etc
-  cp -r ./vendor $out/etc/vendor
-  chmod +x $out
+  export GOMODCACHE=$out
+  go mod download -modcacherw
 '''
 
 [build.quotes-app-go-pure]
 version = "0.0.1"
 description = "Quotes App written in Go"
 command = """
+  export GOMODCACHE=${quotes-app-go-deps}
   mkdir -p $out/{lib,bin}
   cp -pr quotes.json $out/lib
-  cp -r ${quotes-app-go-deps}/etc/vendor ./vendor
   go build -trimpath -o $out/bin/quotes-app-go-pure main.go
   chmod +x $out/bin/quotes-app-go-pure
 """
