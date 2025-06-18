@@ -23,7 +23,7 @@ runtime-packages = [
   "tzdata",
 ]
 
-[build.deps]
+[build.quotes-app-go-deps]
 command = '''
   mkdir -p $out/etc
   cp -r ./vendor $out/etc/vendor
@@ -36,7 +36,7 @@ description = "Quotes App written in Go"
 command = """
   mkdir -p $out/{lib,bin}
   cp -pr quotes.json $out/lib
-  cp -r ${deps}/etc/vendor ./vendor
+  cp -r ${quotes-app-go-deps}/etc/vendor ./vendor
   go build -trimpath -o $out/bin/quotes-app-go-pure main.go
   chmod +x $out/bin/quotes-app-go-pure
 """
