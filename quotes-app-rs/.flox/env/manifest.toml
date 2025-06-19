@@ -47,8 +47,8 @@ description = "Vendored dependencies for the quotes server"
 [build.quotes-app-rs-pure]
 command = '''
   # Tell cargo to use the vendored dependencies
-  mkdir .cargo
-  cat <<-'EOF' > .cargo/config.toml
+  mkdir -p .cargo
+  cat <<-'EOF' > .cargo/vendor-config.toml
   [source.crates-io]
   replace-with = "vendored-sources"
 
@@ -58,7 +58,7 @@ EOF
 
   # Perform the build
   mkdir -p $out/bin
-  cargo build --release --offline
+  cargo build --release --offline --config .cargo/vendor-config.toml
   cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
 '''
 description = "A simple quotes server"
