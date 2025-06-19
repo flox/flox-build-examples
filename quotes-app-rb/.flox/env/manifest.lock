@@ -16,7 +16,7 @@
     "options": {},
     "build": {
       "quotes-app-rb": {
-        "command": "   bundle config set --local path ./vendor\n   bundle install\n   mkdir -p $out/{lib,bin} \n   cp -pr * $out/lib \n   mv $out/lib/quotes $out/bin/quotes-app-rb\n   # Remove things that are not needed in the final package\n\t rm -f $out/lib/.gitignore \n   rm -rf $out/lib/.flox\n",
+        "command": "   mkdir -p $out/{lib,bin}\n\n   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Perform an isolated install using any existing project cache.\n   export BUNDLE_PATH=$out/lib/vendor\n   export BUNDLE_CACHE_PATH=vendor/cache\n   export BUNDLE_DEPLOYMENT=true\n   bundle install --standalone\n\n   cp Gemfile Gemfile.lock $out/lib\n   cp app.rb quotes.json $out/lib\n   cp quotes $out/bin/quotes-app-rb\n",
         "version": "0.0.1",
         "description": "A simple Ruby app that prints a random quote from a list of quotes."
       },

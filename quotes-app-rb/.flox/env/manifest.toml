@@ -13,14 +13,20 @@ GEM_HOME="vendor"
 
 [build.quotes-app-rb]
 command = """
-   bundle config set --local path ./vendor
-   bundle install
-   mkdir -p $out/{lib,bin} 
-   cp -pr * $out/lib 
-   mv $out/lib/quotes $out/bin/quotes-app-rb
-   # Remove things that are not needed in the final package
-	 rm -f $out/lib/.gitignore 
-   rm -rf $out/lib/.flox
+   mkdir -p $out/{lib,bin}
+
+   # Don't use or update paths in the real project config.
+   export BUNDLE_IGNORE_CONFIG=true
+
+   # Perform an isolated install using any existing project cache.
+   export BUNDLE_PATH=$out/lib/vendor
+   export BUNDLE_CACHE_PATH=vendor/cache
+   export BUNDLE_DEPLOYMENT=true
+   bundle install --standalone
+
+   cp Gemfile Gemfile.lock $out/lib
+   cp app.rb quotes.json $out/lib
+   cp quotes $out/bin/quotes-app-rb
 """
 version = "0.0.1"
 description = "A simple Ruby app that prints a random quote from a list of quotes."
