@@ -27,8 +27,8 @@ build_app() {
   local build_name="$2"
 	echo "🔨 Building $build_name with Flox..."
 	pushd "$env_name" > /dev/null
-	"$FLOXBIN" build clean 
-	"$FLOXBIN" build "$build_name"
+	$FLOXBIN build clean
+	$FLOXBIN build "$build_name"
 	popd > /dev/null
 }
 

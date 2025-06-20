@@ -42,6 +42,12 @@ If that returns a 200, it's working.
 
 You can also run `make ruby` or `make go`, etc
 
+An alternate Flox binary can be provided with `FLOXBIN` which can also be used to provide different versions ad-hoc:
+
+``` bash
+FLOXBIN="nix run github:flox/flox/v1.4.4 --"
+```
+
 
 # Using
 `cd` to the directory of the language you want to build and run the following command:
