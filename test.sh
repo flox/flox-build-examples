@@ -4,10 +4,10 @@ set -euo pipefail
 
 # Set which flox you want to use
 if [ -z "${FLOXBIN:-}" ]; then
-  FLOXBIN="$(which flox)"
+  FLOXBIN="nix run github:flox/flox --"
 fi
 
-echo "Using flox binary: $FLOXBIN"
+echo "Using flox command: $FLOXBIN"
 
 # Config
 BASE_PORT=3000

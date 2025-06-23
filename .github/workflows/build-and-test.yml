@@ -12,20 +12,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: "Install Flox"
-        uses: "flox/install-flox-action@main"
+      - name: "Install Nix"
+        uses: "cachix/install-nix-action@v31"
+        with:
+          # `accept-flake-config` is required for substitution despite of also
+          # setting `substituters` and `trusted-public-keys` here.
+          extra_nix_config: |
+            accept-flake-config = true
+            experimental-features = nix-command flakes
+            substituters = https://cache.flox.dev https://cache.nixos.org/
+            trusted-public-keys = flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
 
+      # Test against the `main` branch of `flox/flox` so that we can exercise
+      # new fixes, features, and catch regressions.
       - name: "Set FLOXBIN env var"
-        run: echo "FLOXBIN=$(which flox)" >> $GITHUB_ENV
-
-      - name: "Enable build features"
-        run: flox config --set-bool features.build true
+        run: echo "FLOXBIN=nix run github:flox/flox --" >> $GITHUB_ENV
 
       - name: "Show flox binary path"
         run: echo "Flox is at $FLOXBIN"
 
       - name: "Run flox version"
         run: $FLOXBIN --version
+
+      - name: "Enable build features"
+        run: $FLOXBIN config --set-bool features.build true
 
       - name: "Run make"
         run: make
