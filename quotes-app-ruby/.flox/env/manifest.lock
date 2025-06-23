@@ -15,16 +15,16 @@
     },
     "options": {},
     "build": {
-      "quotes-app-rb": {
-        "command": "   mkdir -p $out/{lib,bin}\n\n   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Perform an isolated install using any existing project cache.\n   export BUNDLE_PATH=$out/lib/vendor\n   export BUNDLE_CACHE_PATH=vendor/cache\n   export BUNDLE_DEPLOYMENT=true\n   bundle install --standalone\n\n   cp Gemfile Gemfile.lock $out/lib\n   cp app.rb quotes.json $out/lib\n   cp quotes $out/bin/quotes-app-rb\n",
+      "quotes-app-ruby": {
+        "command": "   mkdir -p $out/{lib,bin}\n\n   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Perform an isolated install using any existing project cache.\n   export BUNDLE_PATH=$out/lib/vendor\n   export BUNDLE_CACHE_PATH=vendor/cache\n   export BUNDLE_DEPLOYMENT=true\n   bundle install --standalone\n\n   cp Gemfile Gemfile.lock $out/lib\n   cp app.rb quotes.json $out/lib\n   cp quotes $out/bin/quotes-app-ruby\n",
         "version": "0.0.1",
         "description": "A simple Ruby app that prints a random quote from a list of quotes."
       },
-      "quotes-app-rb-deps": {
+      "quotes-app-ruby-deps": {
         "command": "   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Pre-fetch the deps outside of the sandbox.\n   export BUNDLE_PATH=$out\n   export BUNDLE_CACHE_PATH=${out}/cache\n   bundle cache --no-install\n\n   # These gems appear to be duplicated irrespective of `--no-install`\n   rm -rf $out/ruby\n"
       },
-      "quotes-app-rb-pure": {
-        "command": "   mkdir -p $out/{lib,bin}\n\n   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Perform an isolated install using pre-fetched deps.\n   export BUNDLE_PATH=$out/lib/vendor\n   export BUNDLE_CACHE_PATH=${quotes-app-rb-deps}/cache\n   export BUNDLE_DEPLOYMENT=true\n   bundle install --standalone --local\n\n   cp Gemfile Gemfile.lock $out/lib\n   cp app.rb quotes.json $out/lib\n   cp quotes $out/bin/quotes-app-rb-pure\n",
+      "quotes-app-ruby-pure": {
+        "command": "   mkdir -p $out/{lib,bin}\n\n   # Don't use or update paths in the real project config.\n   export BUNDLE_IGNORE_CONFIG=true\n\n   # Perform an isolated install using pre-fetched deps.\n   export BUNDLE_PATH=$out/lib/vendor\n   export BUNDLE_CACHE_PATH=${quotes-app-ruby-deps}/cache\n   export BUNDLE_DEPLOYMENT=true\n   bundle install --standalone --local\n\n   cp Gemfile Gemfile.lock $out/lib\n   cp app.rb quotes.json $out/lib\n   cp quotes $out/bin/quotes-app-ruby-pure\n",
         "sandbox": "pure",
         "version": "0.0.1",
         "description": "A simple Ruby app that prints a random quote from a list of quotes."

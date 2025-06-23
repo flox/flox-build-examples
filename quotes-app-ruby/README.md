@@ -1,4 +1,4 @@
-# quotes-app-rb
+# quotes-app-ruby
 
 A tiny Sinatra-powered HTTP service for serving inspirational quotes.
 
@@ -25,7 +25,7 @@ From the git checkout:
 Or from the Flox built artifact:
 
 ```bash
-   ./result-quotes-app-rb/bin/quotes
+   ./result-quotes-app-ruby/bin/quotes
 ```
 
 ## Client

@@ -23,11 +23,11 @@ libiconv = { pkg-path = "libiconv" }
 # to match versions
 rust-analyzer = { pkg-path = "rust-analyzer", pkg-group = "extra" }
 
-[build.quotes-app-rs]
+[build.quotes-app-rust]
 command = '''
   mkdir -p $out/bin
   cargo build --release
-  cp target/release/quotes-app-rs $out/bin/quotes-app-rs
+  cp target/release/quotes-app-rust $out/bin/quotes-app-rust
 '''
 description = "A simple quotes server"
 version = "0.1.0"
@@ -35,7 +35,7 @@ runtime-packages = ["libiconv", "gcc"]
 
 # This build vendors dependencies in a build with the sandbox off
 # so that we can use the network to fetch dependencies.
-[build.quotes-app-rs-deps]
+[build.quotes-app-rust-deps]
 command = '''
   mkdir -p $out/etc
   cargo vendor $out/etc/vendor
@@ -44,7 +44,7 @@ description = "Vendored dependencies for the quotes server"
 
 # This build uses the vendored dependencies since the network is
 # unavailable with the sandbox turned on.
-[build.quotes-app-rs-pure]
+[build.quotes-app-rust-pure]
 command = '''
   # Tell cargo to use the vendored dependencies
   mkdir -p .cargo
@@ -53,13 +53,13 @@ command = '''
   replace-with = "vendored-sources"
 
   [source.vendored-sources]
-  directory = "${quotes-app-rs-deps}/etc/vendor"
+  directory = "${quotes-app-rust-deps}/etc/vendor"
 EOF
 
   # Perform the build
   mkdir -p $out/bin
   cargo build --release --offline --config .cargo/vendor-config.toml
-  cp target/release/quotes-app-rs $out/bin/quotes-app-rs-pure
+  cp target/release/quotes-app-rust $out/bin/quotes-app-rust-pure
 '''
 description = "A simple quotes server"
 version = "0.1.0"
