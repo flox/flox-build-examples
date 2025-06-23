@@ -35,7 +35,7 @@ runtime-packages = ["libiconv", "gcc"]
 
 # This build vendors dependencies in a build with the sandbox off
 # so that we can use the network to fetch dependencies.
-[build.deps]
+[build.quotes-app-rs-deps]
 command = '''
   mkdir -p $out/etc
   cargo vendor $out/etc/vendor
@@ -53,7 +53,7 @@ command = '''
   replace-with = "vendored-sources"
 
   [source.vendored-sources]
-  directory = "${deps}/etc/vendor"
+  directory = "${quotes-app-rs-deps}/etc/vendor"
 EOF
 
   # Perform the build
