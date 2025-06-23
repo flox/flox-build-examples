@@ -22,7 +22,7 @@ ruby:
 	./test.sh quotes-app-ruby
 
 rust:
-	./test.sh quotes-app-rs
+	./test.sh quotes-app-rust
 
 
 clean:

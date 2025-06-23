@@ -426,7 +426,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "quotes-app-rs"
+name = "quotes-app-rust"
 version = "0.1.0"
 dependencies = [
  "anyhow",
