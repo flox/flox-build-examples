@@ -15,28 +15,65 @@ on-activate = """
 
 [build.quotes-app-nodejs]
 command = """
-   mkdir -p $out/{lib,bin} 
-	 cp -pr package.* quotes.json app.js $out/lib
-   pushd $out/lib
-   npm install --omit=dev
-   popd
-   echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs
-   echo "exec node $out/lib/app.js" >> $out/bin/quotes-app-nodejs
-   chmod 755 $out/bin/quotes-app-nodejs
+    mkdir -p $out/{libexec,bin}
+
+    npm ci
+
+    # Build the application (creates `./dist`
+    npm run build
+
+    # Install `dist` to $out
+    cp -r ./dist $out
+
+    # Copy remaining runtime assets
+    cp quotes.json $out/dist
+
+    # # This example uses a bundler to create a self-sufficient `dist`
+    # # If your app needs additional node_modules at runtime,
+    # # `npm prune` and copy the node mudules to $out
+    # npm prune --include "prod"
+    # cp -r ./node_modules $out
+
+    echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs
+    echo "exec node $out/dist/index.js $@" >> $out/bin/quotes-app-nodejs
+    chmod 755 $out/bin/quotes-app-nodejs
 """
 description = "A quotes app written in nodejs"
 version = "0.0.1"
 
+[build.quotes-app-nodejs-deps]
+command = '''
+    mkdir -p $out
+    npm ci
+    cp -r node_modules $out
+'''
+
 [build.quotes-app-nodejs-pure]
 command = """
-   mkdir -p $out/{lib,bin} 
-	 cp -pr package.* quotes.json app.js $out/lib
-   pushd $out/lib
-   npm install --omit=dev
-   popd
-   echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs-pure
-   echo "exec node $out/lib/app.js" >> $out/bin/quotes-app-nodejs-pure
-   chmod 755 $out/bin/quotes-app-nodejs-pure
+    mkdir -p $out/{dist,bin}
+
+    # Copy node modules built in the previous step
+    cp --no-preserve=mode -r ${quotes-app-nodejs-deps}/node_modules ./
+
+    # Build the application
+    npm run build
+
+    # Install `dist` to $out
+    cp -r ./dist $out
+
+    # Copy remaining runtime assets
+    cp quotes.json $out/dist
+
+    # # This example uses a bundler to create a self-sufficient `dist`
+    # # If your app needs additional node_modules at runtime,
+    # # `npm prune` and copy the node mudules to $out
+    # npm prune --include "prod"
+    # cp -r ./node_modules $out
+
+    # Create an executable to start the server
+    echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs-pure
+    echo "exec node $out/dist/index.js $@" >> $out/bin/quotes-app-nodejs-pure
+    chmod 755 $out/bin/quotes-app-nodejs-pure
 """
 description = "A quotes app written in nodejs"
 version = "0.0.1"
