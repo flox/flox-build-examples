@@ -11,7 +11,7 @@ GEM_HOME="vendor"
     unset CPATH
 '''
 
-[build.quotes-app-rb]
+[build.quotes-app-ruby]
 command = """
    mkdir -p $out/{lib,bin}
 
@@ -26,12 +26,12 @@ command = """
 
    cp Gemfile Gemfile.lock $out/lib
    cp app.rb quotes.json $out/lib
-   cp quotes $out/bin/quotes-app-rb
+   cp quotes $out/bin/quotes-app-ruby
 """
 version = "0.0.1"
 description = "A simple Ruby app that prints a random quote from a list of quotes."
 
-[build.quotes-app-rb-deps]
+[build.quotes-app-ruby-deps]
 command = """
    # Don't use or update paths in the real project config.
    export BUNDLE_IGNORE_CONFIG=true
@@ -45,7 +45,7 @@ command = """
    rm -rf $out/ruby
 """
 
-[build.quotes-app-rb-pure]
+[build.quotes-app-ruby-pure]
 command = """
    mkdir -p $out/{lib,bin}
 
@@ -54,13 +54,13 @@ command = """
 
    # Perform an isolated install using pre-fetched deps.
    export BUNDLE_PATH=$out/lib/vendor
-   export BUNDLE_CACHE_PATH=${quotes-app-rb-deps}/cache
+   export BUNDLE_CACHE_PATH=${quotes-app-ruby-deps}/cache
    export BUNDLE_DEPLOYMENT=true
    bundle install --standalone --local
 
    cp Gemfile Gemfile.lock $out/lib
    cp app.rb quotes.json $out/lib
-   cp quotes $out/bin/quotes-app-rb-pure
+   cp quotes $out/bin/quotes-app-ruby-pure
 """
 sandbox = "pure"
 version = "0.0.1"

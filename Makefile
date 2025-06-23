@@ -19,7 +19,7 @@ php:
 	./test.sh quotes-app-php
 
 ruby:
-	./test.sh quotes-app-rb
+	./test.sh quotes-app-ruby
 
 rust:
 	./test.sh quotes-app-rs
