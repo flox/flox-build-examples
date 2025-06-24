@@ -3,7 +3,7 @@ name: Test Manifest Builds
 on:
   pull_request:
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,9 +33,6 @@ jobs:
 
       - name: "Run flox version"
         run: $FLOXBIN --version
-
-      - name: "Enable build features"
-        run: $FLOXBIN config --set-bool features.build true
 
       - name: "Run make"
         run: make
