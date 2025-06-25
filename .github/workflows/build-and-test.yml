@@ -42,7 +42,7 @@ jobs:
     runs-on: "ubuntu-latest"
     timeout-minutes: 30
 
-    if: ${{ failure() && github.event_name == 'workflow_dispatch' }}
+    if: ${{ failure() && (github.base_ref == 'refs/heads/main' || github.ref == 'refs/heads/main') }}
 
     needs:
       - "build"
