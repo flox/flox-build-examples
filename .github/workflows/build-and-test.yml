@@ -21,6 +21,9 @@ jobs:
           - "ubuntu-latest"
           - "macos-latest"
 
+    env:
+      FLOX_DISABLE_METRICS: true
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
