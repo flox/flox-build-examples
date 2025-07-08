@@ -3,6 +3,11 @@ name: Test Manifest Builds
 on:
   pull_request:
   workflow_dispatch:
+    inputs:
+      FLOX_BRANCH:
+        description: "branch of flox/flox"
+        required: false
+        default: "main"
 
 jobs:
   build:
@@ -26,7 +31,7 @@ jobs:
       # Test against the `main` branch of `flox/flox` so that we can exercise
       # new fixes, features, and catch regressions.
       - name: "Set FLOXBIN env var"
-        run: echo "FLOXBIN=nix run github:flox/flox --" >> $GITHUB_ENV
+        run: echo "FLOXBIN=nix run github:flox/flox/${{ inputs.FLOX_BRANCH }} --" >> $GITHUB_ENV
 
       - name: "Show flox binary path"
         run: echo "Flox is at $FLOXBIN"
