@@ -34,8 +34,10 @@ command = """
     # npm prune --include "prod"
     # cp -R ./node_modules $out
 
-    echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs
-    echo "exec node $out/dist/index.js $@" >> $out/bin/quotes-app-nodejs
+    cat > $out/bin/quotes-app-nodejs <<EOF
+#!/usr/bin/env sh
+exec node $out/dist/index.js \\$@
+EOF
     chmod 755 $out/bin/quotes-app-nodejs
 """
 description = "A quotes app written in nodejs"
@@ -71,8 +73,10 @@ command = """
     # cp -R ./node_modules $out
 
     # Create an executable to start the server
-    echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs-pure
-    echo "exec node $out/dist/index.js $@" >> $out/bin/quotes-app-nodejs-pure
+    cat > $out/bin/quotes-app-nodejs-pure <<EOF
+#!/usr/bin/env sh
+exec node $out/dist/index.js \\$@
+EOF
     chmod 755 $out/bin/quotes-app-nodejs-pure
 """
 description = "A quotes app written in nodejs"
