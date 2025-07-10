@@ -23,7 +23,7 @@ command = """
     npm run build
 
     # Install `dist` to $out
-    cp -r ./dist $out
+    cp -R ./dist $out
 
     # Copy remaining runtime assets
     cp quotes.json $out/dist
@@ -32,7 +32,7 @@ command = """
     # # If your app needs additional node_modules at runtime,
     # # `npm prune` and copy the node mudules to $out
     # npm prune --include "prod"
-    # cp -r ./node_modules $out
+    # cp -R ./node_modules $out
 
     echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs
     echo "exec node $out/dist/index.js $@" >> $out/bin/quotes-app-nodejs
@@ -45,7 +45,7 @@ version = "0.0.1"
 command = '''
     mkdir -p $out
     npm ci
-    cp -r node_modules $out
+    cp -R node_modules $out
 '''
 
 [build.quotes-app-nodejs-pure]
@@ -53,13 +53,13 @@ command = """
     mkdir -p $out/{dist,bin}
 
     # Copy node modules built in the previous step
-    cp --no-preserve=mode -r ${quotes-app-nodejs-deps}/node_modules ./
+    cp --no-preserve=mode -R ${quotes-app-nodejs-deps}/node_modules ./
 
     # Build the application
     npm run build
 
     # Install `dist` to $out
-    cp -r ./dist $out
+    cp -R ./dist $out
 
     # Copy remaining runtime assets
     cp quotes.json $out/dist
@@ -68,7 +68,7 @@ command = """
     # # If your app needs additional node_modules at runtime,
     # # `npm prune` and copy the node mudules to $out
     # npm prune --include "prod"
-    # cp -r ./node_modules $out
+    # cp -R ./node_modules $out
 
     # Create an executable to start the server
     echo "#!/usr/bin/env sh" >  $out/bin/quotes-app-nodejs-pure
