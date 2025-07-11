@@ -18,15 +18,15 @@
     },
     "build": {
       "quotes-app-nodejs": {
-        "command": "    mkdir -p $out/{libexec,bin}\n\n    npm ci\n\n    # Build the application (creates `./dist`\n    npm run build\n\n    # Install `dist` to $out\n    cp -r ./dist $out\n\n    # Copy remaining runtime assets\n    cp quotes.json $out/dist\n\n    # # This example uses a bundler to create a self-sufficient `dist`\n    # # If your app needs additional node_modules at runtime,\n    # # `npm prune` and copy the node mudules to $out\n    # npm prune --include \"prod\"\n    # cp -r ./node_modules $out\n\n    echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-app-nodejs\n    echo \"exec node $out/dist/index.js $@\" >> $out/bin/quotes-app-nodejs\n    chmod 755 $out/bin/quotes-app-nodejs\n",
+        "command": "    mkdir -p $out/{libexec,bin}\n\n    npm ci\n\n    # Build the application (creates `./dist`\n    npm run build\n\n    # Install `dist` to $out\n    cp -R ./dist $out\n\n    # Copy remaining runtime assets\n    cp quotes.json $out/dist\n\n    # # This example uses a bundler to create a self-sufficient `dist`\n    # # If your app needs additional node_modules at runtime,\n    # # `npm prune` and copy the node mudules to $out\n    # npm prune --include \"prod\"\n    # cp -R ./node_modules $out\n\n    cat > $out/bin/quotes-app-nodejs <<EOF\n#!/usr/bin/env sh\nexec node $out/dist/index.js \\$@\nEOF\n    chmod 755 $out/bin/quotes-app-nodejs\n",
         "version": "0.0.1",
         "description": "A quotes app written in nodejs"
       },
       "quotes-app-nodejs-deps": {
-        "command": "    mkdir -p $out\n    npm ci\n    cp -r node_modules $out\n"
+        "command": "    mkdir -p $out\n    npm ci\n    cp -R node_modules $out\n"
       },
       "quotes-app-nodejs-pure": {
-        "command": "    mkdir -p $out/{dist,bin}\n\n    # Copy node modules built in the previous step\n    cp --no-preserve=mode -r ${quotes-app-nodejs-deps}/node_modules ./\n\n    # Build the application\n    npm run build\n\n    # Install `dist` to $out\n    cp -r ./dist $out\n\n    # Copy remaining runtime assets\n    cp quotes.json $out/dist\n\n    # # This example uses a bundler to create a self-sufficient `dist`\n    # # If your app needs additional node_modules at runtime,\n    # # `npm prune` and copy the node mudules to $out\n    # npm prune --include \"prod\"\n    # cp -r ./node_modules $out\n\n    # Create an executable to start the server\n    echo \"#!/usr/bin/env sh\" >  $out/bin/quotes-app-nodejs-pure\n    echo \"exec node $out/dist/index.js $@\" >> $out/bin/quotes-app-nodejs-pure\n    chmod 755 $out/bin/quotes-app-nodejs-pure\n",
+        "command": "    mkdir -p $out/{dist,bin}\n\n    # Copy node modules built in the previous step\n    cp --no-preserve=mode -R ${quotes-app-nodejs-deps}/node_modules ./\n\n    # Build the application\n    npm run build\n\n    # Install `dist` to $out\n    cp -R ./dist $out\n\n    # Copy remaining runtime assets\n    cp quotes.json $out/dist\n\n    # # This example uses a bundler to create a self-sufficient `dist`\n    # # If your app needs additional node_modules at runtime,\n    # # `npm prune` and copy the node mudules to $out\n    # npm prune --include \"prod\"\n    # cp -R ./node_modules $out\n\n    # Create an executable to start the server\n    cat > $out/bin/quotes-app-nodejs-pure <<EOF\n#!/usr/bin/env sh\nexec node $out/dist/index.js \\$@\nEOF\n    chmod 755 $out/bin/quotes-app-nodejs-pure\n",
         "sandbox": "pure",
         "version": "0.0.1",
         "description": "A quotes app written in nodejs"
