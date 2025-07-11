@@ -13,7 +13,7 @@ on:
         default: "main"
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -58,13 +58,13 @@ jobs:
     if: ${{ failure() && (github.base_ref == 'refs/heads/main' || github.ref == 'refs/heads/main') }}
 
     needs:
-      - "build"
+      - "test"
 
     steps:
       - name: "Slack Notification"
         uses: "rtCamp/action-slack-notify@v2"
         env:
-          SLACK_TITLE:      "Manifest build examples failed to build"
+          SLACK_TITLE:      "Tests failed for manifest build examples"
           SLACK_FOOTER:     "Thank you for caring"
           SLACK_WEBHOOK:    "${{ secrets.MANAGED_SLACK_WEBHOOK }}"
           SLACK_USERNAME:   "GitHub"
