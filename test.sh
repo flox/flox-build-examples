@@ -16,7 +16,7 @@ ENVS=$(find ./* -type d -prune -print |xargs -0 | tr -d './')
 declare -a DEFAULT_BUILD_MODIFIERS
 DEFAULT_BUILD_MODIFIERS=("" "-pure")
 declare -a FIXME_BUILDS
-FIXME_BUILDS=("quotes-app-python-pure" "quotes-app-jvm-pure")
+FIXME_BUILDS=("quotes-app-jvm-pure")
 
 # Global test results
 declare -a TEST_RESULTS

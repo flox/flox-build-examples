@@ -23,15 +23,20 @@
     "options": {},
     "build": {
       "quotes-app-python": {
-        "command": "  # Install to a new virtualenv.\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true\n  echo \"VENV_PATH is $POETRY_VIRTUALENVS_PATH\"\n  poetry install\n\n  # Symlink any executables from the virtualenv.\n  mkdir -p \"${out}/bin\"\n  cd $out/bin\n  ln -s ../*/bin/quotes-app-python .\n",
+        "command": "  mkdir $out\n\n  # Prevent install being a noop when run from an existing activation that\n  # already has the virtualenv and dependencies installed.\n  unset VIRTUAL_ENV\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n\n  # Install dependencies to the virtualenv.\n  poetry install --no-root\n\n  # Build and install our project to the virtualenv.\n  poetry build --format wheel\n  poetry run pip install dist/quotes_app_python-*.whl\n\n  # Copy the binstub from the virtualenv to be wrapped by Flox.\n  venv_path=\"$(poetry env info --path)\"\n  mkdir -p \"${out}/bin\"\n  cp \"${venv_path}/bin/quotes-app-python\" \"${out}/bin/quotes-app-python\"\n",
         "runtime-packages": [
           "python3"
         ],
         "version": "0.0.1",
         "description": "A simple Python app that prints a random quote from a list of quotes."
       },
+      "quotes-app-python-deps": {
+        "command": "  mkdir $out\n\n  # Prevent install being a noop when run from an existing activation that\n  # already has the virtualenv and dependencies installed.\n  unset VIRTUAL_ENV\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n\n  # Install dependencies and cache them in the build output.\n  export POETRY_CACHE_DIR=$out\n  poetry install --no-root\n\n  # Poetry doesn't have a way to populate the cache without installing the\n  # dependencies so we just delete the virtualenv after.\n  venv_path=\"$(poetry env info --path)\"\n  rm -rf \"$venv_path\"\n",
+        "version": "0.0.1",
+        "description": "Vendored dependencies for the quotes server"
+      },
       "quotes-app-python-pure": {
-        "command": "  # Install to a new virtualenv.\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true\n  poetry install\n\n  # Symlink any executables from the virtualenv.\n  mkdir -p \"${out}/bin\"\n  cd $out/bin\n  ln -s ../*/bin/quotes-app-python-pure .\n",
+        "command": "  mkdir $out\n\n  # Create an isolated virtualenv with the correct `python` and `site-packages`\n  # from this build.\n  export POETRY_VIRTUALENVS_PATH=$out\n  export POETRY_VIRTUALENVS_IN_PROJECT=false\n\n  # Install cached dependencies from the deps build.\n  export POETRY_CACHE_DIR=${quotes-app-python-deps}\n  poetry install --no-root\n\n  # Build and install our project to the virtualenv.\n  poetry build --format wheel\n  poetry run pip install dist/quotes_app_python-*.whl\n\n  # Copy the binstub from the virtualenv to be wrapped by Flox.\n  venv_path=\"$(poetry env info --path)\"\n  mkdir -p \"${out}/bin\"\n  cp \"${venv_path}/bin/quotes-app-python\" \"${out}/bin/quotes-app-python-pure\"\n",
         "runtime-packages": [
           "python3"
         ],
