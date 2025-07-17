@@ -21,7 +21,6 @@ FIXME_BUILDS=(
     "quotes-app-cpp-nix"
     "quotes-app-go-nix"
     "quotes-app-jvm-nix"
-    "quotes-app-nodejs-nix"
     "quotes-app-php-nix"
     "quotes-app-python-nix"
     "quotes-app-ruby-nix"
