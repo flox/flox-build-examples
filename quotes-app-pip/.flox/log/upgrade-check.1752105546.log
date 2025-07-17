@@ -1,0 +1,13 @@
+2025-07-09T23:59:06.208905Z DEBUG flox::config: reading raw config (initialized: false, reload: false)
+2025-07-09T23:59:06.209117Z DEBUG flox::config: `$FLOX_CONFIG_DIR` set: /Users/zmitchell/.config/flox
+2025-07-09T23:59:06.209391Z DEBUG flox::utils::init::sentry: No Sentry DSN set, skipping Sentry initialization
+2025-07-09T23:59:06.209400Z DEBUG flox: set _FLOX_PKGDB_VERBOSITY=2
+2025-07-09T23:59:06.210024Z DEBUG flox::config: reading raw config (initialized: true, reload: false)
+2025-07-09T23:59:06.210217Z DEBUG flox::commands: Skipping update check in development mode
+2025-07-09T23:59:06.210329Z DEBUG flox::commands: Metrics collection enabled
+2025-07-09T23:59:06.210405Z DEBUG flox::utils::init::catalog_client: using catalog client with url: https://api.flox.dev
+2025-07-09T23:59:06.212427Z DEBUG flox::commands: feature flags configured=Features { upload: false, qa: true }
+2025-07-09T23:59:06.213055Z DEBUG check-upgrade: flox::utils::metrics: pushing entry to metrics buffer: MetricEntry { subcommand: Some("check-upgrade"), extras: {}, timestamp: 2025-07-09 23:59:06.212974 +00:00:00, uuid: f5187196-aea5-4e3d-bca5-e04499c42547, flox_version: "1.5.0-ge9f8e4f", os_family: Some("Mac OS"), os_family_release: Some("23.6.0"), os: None, os_version: None, empty_flags: [] }
+2025-07-09T23:59:06.214125Z DEBUG check-upgrade: flox_rust_sdk::models::environment: detected concrete environment type: path
+2025-07-09T23:59:06.215365Z DEBUG check-upgrade: flox_rust_sdk::providers::upgrade_checks: created unlocked upgrade information guard upgrade_information_path="/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/cache/upgrade-checks.json"
+2025-07-09T23:59:06.215573Z DEBUG check-upgrade: flox::commands::check_for_upgrades: Recently checked for upgrades. Skipping.

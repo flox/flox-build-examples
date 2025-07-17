@@ -109,10 +109,6 @@ command = '''
 
 [build.quotes-app-pip-pure]
 command = '''
-  # Prevent install being a noop when run from an existing activation that
-  # already has the virtualenv and dependencies installed.
-  unset VIRTUAL_ENV
-  
   # Create a virtual environment for the project and its dependencies.
   mkdir -p $out/libexec
   python3 -m venv $out/libexec/venv 
