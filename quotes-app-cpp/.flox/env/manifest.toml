@@ -10,14 +10,8 @@ clang-tools.pkg-path = "clang-tools"
 version = "0.0.1"
 description = "Quotes app written in C++"
 command = """
-  mkdir -p $out/{bin,lib,libexec}
   make
-  cp -pr quotes.json $out/lib
-  cp -pr quotes-app-cpp $out/libexec
-  echo "#!/usr/bin/env sh" > $out/bin/quotes-app-cpp
-  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-app-cpp
-  echo "exec $out/libexec/quotes-app-cpp" >> $out/bin/quotes-app-cpp
-  chmod +x $out/bin/quotes-app-cpp
+  make install PREFIX=$out
 """
 # Need libboost.dylib at runtime.
 runtime-packages = [ "boost" ]
@@ -26,14 +20,8 @@ runtime-packages = [ "boost" ]
 version = "0.0.1"
 description = "Quotes app written in C++"
 command = """
-  mkdir -p $out/{bin,lib,libexec}
   make
-  cp -pr quotes.json $out/lib
-  cp -pr quotes-app-cpp $out/libexec
-  echo "#!/usr/bin/env sh" > $out/bin/quotes-app-cpp-pure
-  echo "export QUOTES_FILE=$out/lib/quotes.json" >> $out/bin/quotes-app-cpp-pure
-  echo "exec $out/libexec/quotes-app-cpp" >> $out/bin/quotes-app-cpp-pure
-  chmod +x $out/bin/quotes-app-cpp-pure
+  make install PREFIX=$out SUFFIX="-pure"
 """
 sandbox = "pure"
 # Need libboost.dylib at runtime.
