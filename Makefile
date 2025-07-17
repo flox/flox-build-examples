@@ -24,6 +24,9 @@ ruby:
 rust:
 	./test.sh quotes-app-rust
 
+pip:
+	./test.sh quotes-app-pip
+
 
 clean:
 	@for dir in $(shell ls -d */ | tr -d '/'); do \

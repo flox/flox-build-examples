@@ -1,0 +1,15 @@
+2025-07-17T15:11:42.314130Z DEBUG flox_watchdog::sentry: No Sentry DSN set, skipping Sentry initialization
+2025-07-17T15:11:42.319594Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.ad8fe408.sock" log_dir="/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log"}: flox_watchdog: starting
+2025-07-17T15:11:42.319941Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.ad8fe408.sock" log_dir="/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log"}: flox_watchdog: checked socket path="/Users/zmitchell/.cache/flox/run/flox.ad8fe408.sock" exists=false
+2025-07-17T15:11:42.319952Z  INFO watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.ad8fe408.sock" log_dir="/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log"}: flox_watchdog: watchdog is on duty this_pid=10292 target_activation_id="c1a80d2b"
+2025-07-17T15:11:42.320009Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.ad8fe408.sock" log_dir="/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log"}: flox_watchdog: waiting for termination
+2025-07-17T15:11:42.320013Z DEBUG flox_watchdog::logger: still watching, woof woof
+2025-07-17T15:11:42.325565Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.043f552e.log.2025-07-09
+2025-07-17T15:11:42.358636Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.043f552e.log.2025-07-10
+2025-07-17T15:11:42.359327Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.29f41655.log.2025-07-11
+2025-07-17T15:11:42.359789Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.406599f6.log.2025-07-09
+2025-07-17T15:11:42.360481Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.483a7071.log.2025-07-10
+2025-07-17T15:11:42.361356Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.483a7071.log.2025-07-11
+2025-07-17T15:11:42.361628Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.55a93ac3.log.2025-07-09
+2025-07-17T15:11:42.362190Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/watchdog.ab2ec7ef.log.2025-07-09
+2025-07-17T15:11:42.363198Z DEBUG flox_watchdog::logger: deleted log path=/Users/zmitchell/src/flox-manifest-build-examples/quotes-app-pip/.flox/log/upgrade-check.1752105446.log
