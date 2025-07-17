@@ -78,19 +78,13 @@ command = '''
   mkdir $out/bin
   cd $out/bin
   ln -s ../libexec/venv/bin/quotes-app-pip .
-
-  echo "OUT"
-  ls -al $out
-  echo
-  echo "LIBEXEC"
-  ls -al $out/libexec/venv/lib/python3.12/site-packages/pip-25.0.1.dist-info/
 '''
 runtime-packages = ["python3"]
 
 [build.quotes-app-pip-deps]
 command = '''
-  # Prevent install being a noop when run from an existing activation that
-  # already has the virtualenv and dependencies installed.
+  # Ensure that an existing virtual environment doesn't interfere
+  # with downloading new dependencies.
   unset VIRTUAL_ENV
 
   # The virtual environment is only needed to be able to run
