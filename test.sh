@@ -14,9 +14,19 @@ BASE_PORT=3000
 TIMEOUT=15
 ENVS=$(find ./* -type d -prune -print |xargs -0 | tr -d './')
 declare -a DEFAULT_BUILD_MODIFIERS
-DEFAULT_BUILD_MODIFIERS=("" "-pure")
+DEFAULT_BUILD_MODIFIERS=("" "-pure" "-nix")
 declare -a FIXME_BUILDS
-FIXME_BUILDS=("quotes-app-jvm-pure")
+FIXME_BUILDS=(
+    "quotes-app-jvm-pure"
+    "quotes-app-cpp-nix"
+    "quotes-app-go-nix"
+    "quotes-app-jvm-nix"
+    "quotes-app-nodejs-nix"
+    "quotes-app-php-nix"
+    "quotes-app-python-nix"
+    "quotes-app-ruby-nix"
+    "quotes-app-rust-nix"
+)
 
 # Global test results
 declare -a TEST_RESULTS
