@@ -20,4 +20,8 @@ python312Packages.buildPythonApplication {
     fastapi
     uvicorn
   ];
+
+  postInstall = ''
+    mv $out/bin/quotes-app-pip $out/bin/quotes-app-pip-nix
+  '';
 }
