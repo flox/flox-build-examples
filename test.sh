@@ -25,7 +25,6 @@ FIXME_BUILDS=(
     "quotes-app-php-nix"
     "quotes-app-python-nix"
     "quotes-app-ruby-nix"
-    "quotes-app-rust-nix"
 )
 
 # Global test results
