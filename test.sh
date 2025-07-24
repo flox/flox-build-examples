@@ -18,7 +18,6 @@ DEFAULT_BUILD_MODIFIERS=("" "-pure" "-nix")
 declare -a FIXME_BUILDS
 FIXME_BUILDS=(
     "quotes-app-jvm-pure"
-    "quotes-app-go-nix"
     "quotes-app-jvm-nix"
     "quotes-app-nodejs-nix"
     "quotes-app-php-nix"
