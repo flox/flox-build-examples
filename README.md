@@ -1,7 +1,6 @@
 # What is this?
 
-This repository is meant to be a demo-setup for several ecosystems to show how
-to build a package using the manifest build approach from Flox.
+A collection of examples and tests for using Flox [manifest builds](https://flox.dev/docs/concepts/manifest-builds/) and [Nix expression builds](https://flox.dev/docs/concepts/nix-expression-builds/) with a variety of popular language ecosystems.
 
 # Supported Languages
 
