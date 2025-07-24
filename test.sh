@@ -19,7 +19,6 @@ declare -a FIXME_BUILDS
 FIXME_BUILDS=(
     "quotes-app-jvm-pure"
     "quotes-app-jvm-nix"
-    "quotes-app-nodejs-nix"
     "quotes-app-php-nix"
     "quotes-app-python-nix"
     "quotes-app-ruby-nix"
