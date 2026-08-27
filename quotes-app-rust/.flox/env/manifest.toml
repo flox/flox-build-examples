@@ -1,16 +1,16 @@
-version = 1
+schema-version = "1.15.0"
 
 [install]
 # Rust toolchain
 cargo = { pkg-path = "cargo" }
-rustc = { pkg-path = "rustc" }
+rustc = { pkg-path = "rustc" , outputs = "all" }
 clippy = { pkg-path = "clippy" }
 rustfmt = { pkg-path = "rustfmt" }
 rust-lib-src = { pkg-path = "rustPlatform.rustLibSrc" }
 
 # Linkers
 clang = { pkg-path = "clang", systems = ["aarch64-darwin"] }
-gcc = { pkg-path = "gcc", systems = ["aarch64-linux", "x86_64-linux"] }
+gcc = { pkg-path = "gcc", systems = ["aarch64-linux", "x86_64-linux"] , outputs = "all" }
 
 # Platform-specific libraries
 # Until https://github.com/flox/flox/issues/3055 is fixed, we need all system
