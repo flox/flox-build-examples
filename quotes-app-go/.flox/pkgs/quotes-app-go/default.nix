@@ -5,7 +5,7 @@ let
 in
 buildGoModule {
   pname = "quotes-app-go";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = src;
   # This must be updated when `go.mod` or `go.sum` are changed.
