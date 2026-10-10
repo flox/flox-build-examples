@@ -20,6 +20,7 @@ FIXME_BUILDS=(
     "quotes-app-jvm-pure"
     "quotes-app-jvm-nix"
     "quotes-app-php-nix"
+    "quotes-app-pip-nix"
     "quotes-app-python-nix"
     "quotes-app-ruby-nix"
 )
