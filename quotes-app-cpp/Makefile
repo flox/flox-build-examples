@@ -12,7 +12,7 @@ ifeq ($(origin FLOXBIN), undefined)
 endif
 
 all:
-	clang++ -O3 -std=c++17 quotes_server.cpp -o quotes-app-cpp -lboost_system -lboost_json -pthread
+	clang++ -O3 -std=c++17 quotes_server.cpp -o quotes-app-cpp -lboost_json -pthread
 
 $(PREFIX)/lib/quotes.json:
 	$(if $(PREFIX),,$(error PREFIX is undefined))

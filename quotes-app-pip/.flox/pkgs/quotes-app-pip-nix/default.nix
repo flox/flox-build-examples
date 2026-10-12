@@ -1,8 +1,8 @@
 {
-  python312Packages,
+  python3Packages,
 }:
 
-python312Packages.buildPythonApplication {
+python3Packages.buildPythonApplication {
   pname = "quotes-app-pip-nix";
   version = "0.0.1";
   pyproject = true;
@@ -12,11 +12,11 @@ python312Packages.buildPythonApplication {
     path = ./../../..;
   };
 
-  build-system = with python312Packages; [
+  build-system = with python3Packages; [
     setuptools
   ];
 
-  dependencies = with python312Packages; [
+  dependencies = with python3Packages; [
     fastapi
     uvicorn
   ];
