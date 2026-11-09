@@ -20,7 +20,18 @@ FIXME_BUILDS=(
     "quotes-app-jvm-pure"
     "quotes-app-jvm-nix"
     "quotes-app-php-nix"
-    "quotes-app-python-nix"
+    # Python: the venv recipe fetches wheels from PyPI at build time (a cold
+    # uv cache means network), which `sandbox = "pure"` forbids. A pure build
+    # would need a vendored-wheels stage first.
+    "quotes-app-python-poetry-pure"
+    "quotes-app-python-pyproject-pure"
+    "quotes-app-python-requirements-pure"
+    "quotes-app-python-uv-pure"
+    # Python: no Nix expression for the lockfile-driven shapes; only the
+    # pyproject.toml shape has one (buildPythonApplication).
+    "quotes-app-python-poetry-nix"
+    "quotes-app-python-requirements-nix"
+    "quotes-app-python-uv-nix"
     "quotes-app-ruby-nix"
 )
 

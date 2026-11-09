@@ -1,0 +1,24 @@
+[project]
+name = "quotes-app-python-pyproject"
+version = "0.1.0"
+description = "Quotes server: pyproject.toml only, no lockfile, console script"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "numpy",
+]
+
+[project.scripts]
+quotes-app-python-pyproject = "quotes_app.main:main"
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["quotes_app*"]
+
+# Ship quotes.json inside the package.
+[tool.setuptools.package-data]
+quotes_app = ["quotes.json"]

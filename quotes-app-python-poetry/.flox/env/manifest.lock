@@ -1,0 +1,709 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "schema-version": "1.19.0",
+    "install": {
+      "auto-patchelf": {
+        "pkg-path": "auto-patchelf",
+        "systems": [
+          "aarch64-linux",
+          "x86_64-linux"
+        ]
+      },
+      "gcc-unwrapped": {
+        "pkg-path": "gcc-unwrapped",
+        "systems": [
+          "aarch64-linux",
+          "x86_64-linux"
+        ],
+        "outputs": [
+          "lib"
+        ]
+      },
+      "patchelf": {
+        "pkg-path": "patchelf",
+        "systems": [
+          "aarch64-linux",
+          "x86_64-linux"
+        ]
+      },
+      "poetry": {
+        "pkg-path": "poetry"
+      },
+      "python3": {
+        "pkg-path": "python312"
+      },
+      "uv": {
+        "pkg-path": "uv"
+      },
+      "zlib": {
+        "pkg-path": "zlib",
+        "systems": [
+          "aarch64-linux",
+          "x86_64-linux"
+        ]
+      }
+    },
+    "hook": {
+      "on-activate": "  # Poetry owns the dev venv (poetry.lock is the source of truth). It cannot be told the\n  # venv's path, only its parent, so keep it under the env cache and let poetry name it.\n  export POETRY_VIRTUALENVS_PATH=\"$FLOX_ENV_CACHE/poetry\" POETRY_VIRTUALENVS_IN_PROJECT=false\n  # The nixpkgs poetry wrapper puts its own python (3.13) first on PATH; pin the venv to\n  # the manifest's interpreter or `poetry env activate` cannot find it.\n  poetry env use --quiet \"$FLOX_ENV/bin/python3\"\n  poetry install --quiet --no-interaction\n  # [profile] is sourced only by interactive shells; `flox activate -- cmd` needs this too.\n  export VIRTUAL_ENV=\"$(poetry env info --path)\"\n  export PATH=\"$VIRTUAL_ENV/bin:$PATH\"\n"
+    },
+    "profile": {
+      "bash": "eval \"$(poetry env activate)\"",
+      "zsh": "eval \"$(poetry env activate)\""
+    },
+    "options": {
+      "systems": [
+        "aarch64-darwin",
+        "x86_64-darwin",
+        "aarch64-linux",
+        "x86_64-linux"
+      ]
+    },
+    "build": {
+      "quotes-app-python-poetry": {
+        "command": "  export UV_PYTHON_DOWNLOADS=never UV_PYTHON_PREFERENCE=only-system UV_LINK_MODE=copy\n  uv venv --python \"$FLOX_ENV/bin/python3\" \"$out\"\n  export VIRTUAL_ENV=\"$out\" UV_PROJECT_ENVIRONMENT=\"$out\"\n  # poetry installs exactly poetry.lock into $out. It honours VIRTUAL_ENV only when it has\n  # no envs.toml record for this project and no in-project .venv, so neutralise both.\n  export POETRY_VIRTUALENVS_PATH=\"$out\" POETRY_VIRTUALENVS_IN_PROJECT=false\n  poetry install --only main --no-root --no-interaction\n  uv pip install --no-deps .\n  if [ \"$(uname)\" = Linux ]; then\n    auto-patchelf --paths \"$out/lib\" --libs \"$FLOX_ENV/lib\"\n  fi\n",
+        "runtime-packages": [
+          "python3",
+          "gcc-unwrapped",
+          "zlib"
+        ],
+        "version": "0.1.0"
+      }
+    }
+  },
+  "packages": [
+    {
+      "attr_path": "auto-patchelf",
+      "broken": false,
+      "derivation": "/nix/store/7sajvcfdnw6bk96jlvbbrvk6avkws2dr-auto-patchelf-0-unstable-2024-08-14.drv",
+      "description": "Automatically patch ELF binaries using patchelf",
+      "install_id": "auto-patchelf",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "auto-patchelf-0-unstable-2024-08-14",
+      "pname": "auto-patchelf",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:49:22.466327Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2024-08-14",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/x7sccyrspqnkz6cr3frs16yyyqlk0mra-auto-patchelf-0-unstable-2024-08-14"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "auto-patchelf",
+      "broken": false,
+      "derivation": "/nix/store/1yigzmaajsh5y7w98cw0f6gsh2cdycwz-auto-patchelf-0-unstable-2024-08-14.drv",
+      "description": "Automatically patch ELF binaries using patchelf",
+      "install_id": "auto-patchelf",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "auto-patchelf-0-unstable-2024-08-14",
+      "pname": "auto-patchelf",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:55:43.996388Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2024-08-14",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/8ss0825j37h04hh4zi56mpczlcivpkmq-auto-patchelf-0-unstable-2024-08-14"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gcc-unwrapped",
+      "broken": false,
+      "derivation": "/nix/store/bmcdjrmrqkrwfv16d039mnn9974fhch1-gcc-15.2.0.drv",
+      "description": "GNU Compiler Collection, version 15.2.0",
+      "install_id": "gcc-unwrapped",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "gcc-15.2.0",
+      "pname": "gcc-unwrapped",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:49:24.152482Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "15.2.0",
+      "outputs_to_install": [
+        "man",
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "checksum": "/nix/store/6igpfz2rx7xxsr5kvxwlc57d5iafaabz-gcc-15.2.0-checksum",
+        "info": "/nix/store/khkipdd1fmlcbxnza01582fh7j2mfnf3-gcc-15.2.0-info",
+        "lib": "/nix/store/m3v5jbl1y7hxb1yimlyp0067acslkxf2-gcc-15.2.0-lib",
+        "libgcc": "/nix/store/5scis26lfzmcsbgbs3b1i4wraxg28pbp-gcc-15.2.0-libgcc",
+        "man": "/nix/store/bny95l0diywfwvg1lnwhm1m9fsxdm5pl-gcc-15.2.0-man",
+        "out": "/nix/store/8hwmjrgdixn4612zrlabmych64ix89mx-gcc-15.2.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "gcc-unwrapped",
+      "broken": false,
+      "derivation": "/nix/store/qlb1647jp7grq5fgp66fhk5qr9rzr1j6-gcc-15.2.0.drv",
+      "description": "GNU Compiler Collection, version 15.2.0",
+      "install_id": "gcc-unwrapped",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "gcc-15.2.0",
+      "pname": "gcc-unwrapped",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:55:45.908488Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "15.2.0",
+      "outputs_to_install": [
+        "man",
+        "man",
+        "man",
+        "out",
+        "out",
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "checksum": "/nix/store/scnas3kx869pfc8mz3fjqmfvl9m9sn6a-gcc-15.2.0-checksum",
+        "info": "/nix/store/2hbjnbfhaq4gq6p55xi9qvj6lx7x4g04-gcc-15.2.0-info",
+        "lib": "/nix/store/hngmi01i8wgi25a0byrxcn4ysz5j79mw-gcc-15.2.0-lib",
+        "libgcc": "/nix/store/7nww4d4yl7jzf66qllvyn61xb21vp7ry-gcc-15.2.0-libgcc",
+        "man": "/nix/store/5r95b3z75rc980dws0wp5ylawgzfkj6l-gcc-15.2.0-man",
+        "out": "/nix/store/sq0nrnfwhkc5ljvklnrk5ps4358g4nbj-gcc-15.2.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "patchelf",
+      "broken": false,
+      "derivation": "/nix/store/jfisc68gcgk86681w27z6hacmyk79g8n-patchelf-0.15.2.drv",
+      "description": "Small utility to modify the dynamic linker and RPATH of ELF executables",
+      "install_id": "patchelf",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "patchelf-0.15.2",
+      "pname": "patchelf",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:50:09.675040Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.15.2",
+      "outputs_to_install": [
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/hqiqqrch4m5j85j28ap2c6vf87lbyhnn-patchelf-0.15.2"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "patchelf",
+      "broken": false,
+      "derivation": "/nix/store/vyb3msl0jjj04jxyh1d6yb8hmvyirk5g-patchelf-0.15.2.drv",
+      "description": "Small utility to modify the dynamic linker and RPATH of ELF executables",
+      "install_id": "patchelf",
+      "license": "GPL-3.0-or-later",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "patchelf-0.15.2",
+      "pname": "patchelf",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:56:35.036790Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.15.2",
+      "outputs_to_install": [
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/jbav217344pndjbghzyjmh0mkzy1973i-patchelf-0.15.2"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "poetry",
+      "broken": false,
+      "derivation": "/nix/store/9wx8h8z1hlvcmh4a0ihydqnvyr9hqgxb-python3.13-poetry-2.4.1.drv",
+      "description": "Python dependency management and packaging made easy",
+      "install_id": "poetry",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "poetry-2.4.1",
+      "pname": "poetry",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:17:22.373466Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.4.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/rqr2ql8g1jvxa2cf9lmqp9cdj8b2gvf1-python3.13-poetry-2.4.1-dist",
+        "out": "/nix/store/70xyakvb0yd02v0l7y88sdpjxim80q2g-python3.13-poetry-2.4.1"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "poetry",
+      "broken": false,
+      "derivation": "/nix/store/yw0px9xyphqwfi96z46iq7v6jga2mibv-python3.13-poetry-2.4.1.drv",
+      "description": "Python dependency management and packaging made easy",
+      "install_id": "poetry",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "poetry-2.4.1",
+      "pname": "poetry",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:50:20.962936Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.4.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/a462wwydi819sbhl69cbib65ys2q049d-python3.13-poetry-2.4.1-dist",
+        "out": "/nix/store/z0p5433264lbih8r0rcj1s3x9mzpd2p1-python3.13-poetry-2.4.1"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "poetry",
+      "broken": false,
+      "derivation": "/nix/store/y37lwprpgkqhrhiqpb82sgff3inz2sgj-python3.13-poetry-2.4.1.drv",
+      "description": "Python dependency management and packaging made easy",
+      "install_id": "poetry",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "poetry-2.4.1",
+      "pname": "poetry",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:21:44.590475Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.4.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/mpigmi2aj53kz5ix84gij0ybxfwis6pp-python3.13-poetry-2.4.1-dist",
+        "out": "/nix/store/45rgib78zs3rklv7v05n3scncgb0xp0b-python3.13-poetry-2.4.1"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "poetry",
+      "broken": false,
+      "derivation": "/nix/store/p9vqgcr1f2ybpb7wnrpgzvxdjd8s8zp0-python3.13-poetry-2.4.1.drv",
+      "description": "Python dependency management and packaging made easy",
+      "install_id": "poetry",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "poetry-2.4.1",
+      "pname": "poetry",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:56:46.179826Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.4.1",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "dist": "/nix/store/6s42fkk0n6xwpyvyd0nrwmpipyww1cg5-python3.13-poetry-2.4.1-dist",
+        "out": "/nix/store/sg683nl0g0zlvhnjrvnq0c3ms4073kwi-python3.13-poetry-2.4.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/0scvydzrq1fwrd2g6qkxzwhfr74jb5bi-python3-3.12.13.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python3",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "python3-3.12.13",
+      "pname": "python312",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:17:24.402124Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.13",
+      "outputs_to_install": [
+        "out",
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/65p6ipj712fb5igr9w1h5k5cb7bymj42-python3-3.12.13"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/yyqr2z480r6c13skh5afgksphr2lfzdp-python3-3.12.13.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python3",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "python3-3.12.13",
+      "pname": "python312",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:50:23.753091Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.13",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/flj97zlvj6lz384brw7r5xa8hfmqbp2q-python3-3.12.13-debug",
+        "out": "/nix/store/wicbzqr46qxkh8nv4191fx8jdjrhya3i-python3-3.12.13"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/yli627mjkh5nykx1hv2yi5dnwh2n1692-python3-3.12.13.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python3",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "python3-3.12.13",
+      "pname": "python312",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:21:46.480334Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.13",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/afd3xzw8afbbr1dsqjvb6xg2a5gah4vg-python3-3.12.13"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "python312",
+      "broken": false,
+      "derivation": "/nix/store/39fqik436whzb2vs7xckk644zmc65fwg-python3-3.12.13.drv",
+      "description": "High-level dynamically-typed programming language",
+      "install_id": "python3",
+      "license": "Python-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "python3-3.12.13",
+      "pname": "python312",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:56:48.976674Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "python3-3.12.13",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/sk5vgw3w0g8j9x0r261piqjczmgvqbb6-python3-3.12.13-debug",
+        "out": "/nix/store/d69yn2v7lzyh29rykj0ldnih67xps5s0-python3-3.12.13"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "uv",
+      "broken": false,
+      "derivation": "/nix/store/v5ah96yiq4jkgvzy3zf3il3v5adhdb8n-uv-0.11.22.drv",
+      "description": "Extremely fast Python package installer and resolver, written in Rust",
+      "install_id": "uv",
+      "license": "[ Apache-2.0, MIT ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "uv-0.11.22",
+      "pname": "uv",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:19:21.074501Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.11.22",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/fn1yzcbi40qnkkf0yi5fcmqgm87rpxai-uv-0.11.22"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "uv",
+      "broken": false,
+      "derivation": "/nix/store/xg4cnnd59dl36i4jfpmh1lgc1hlwqbzi-uv-0.11.22.drv",
+      "description": "Extremely fast Python package installer and resolver, written in Rust",
+      "install_id": "uv",
+      "license": "[ Apache-2.0, MIT ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "uv-0.11.22",
+      "pname": "uv",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:52:46.169502Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.11.22",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/cd0vkwix6pbcf4a4r7hqnizwxwcgcwhq-uv-0.11.22"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "uv",
+      "broken": false,
+      "derivation": "/nix/store/bj75k19vm8azik2iixk57i2k6gl9cx6l-uv-0.11.22.drv",
+      "description": "Extremely fast Python package installer and resolver, written in Rust",
+      "install_id": "uv",
+      "license": "[ Apache-2.0, MIT ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "uv-0.11.22",
+      "pname": "uv",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:23:40.576718Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.11.22",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/kjj70slc4l7dy98zxby5r69375lnxl41-uv-0.11.22"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "uv",
+      "broken": false,
+      "derivation": "/nix/store/gpw9nl8wpan0h9h9h8r9g0mjgs8xvj0x-uv-0.11.22.drv",
+      "description": "Extremely fast Python package installer and resolver, written in Rust",
+      "install_id": "uv",
+      "license": "[ Apache-2.0, MIT ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "uv-0.11.22",
+      "pname": "uv",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:59:17.645183Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.11.22",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/5x45h9xpizfv25k60k136v3pblks7hmr-uv-0.11.22"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "zlib",
+      "broken": false,
+      "derivation": "/nix/store/wph0cdg2l4y5zmvy0j4gb1d4kxgppvwl-zlib-1.3.2.drv",
+      "description": "Lossless data-compression library",
+      "install_id": "zlib",
+      "license": "Zlib",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "zlib-1.3.2",
+      "pname": "zlib",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T03:53:07.307775Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.3.2",
+      "outputs_to_install": [
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "dev": "/nix/store/jqsz5xhpkn55w6q2pxa5a8s598ic122p-zlib-1.3.2-dev",
+        "out": "/nix/store/dxiaz7djzlgkqi9bzd95x25lhvixvdph-zlib-1.3.2",
+        "static": "/nix/store/dcv5x6yfz0x2w56nn4lixhc1kdynas5g-zlib-1.3.2-static"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "zlib",
+      "broken": false,
+      "derivation": "/nix/store/92yhjpd6g9n92dxn52xv2f29h55g6n4z-zlib-1.3.2.drv",
+      "description": "Lossless data-compression library",
+      "install_id": "zlib",
+      "license": "Zlib",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "name": "zlib-1.3.2",
+      "pname": "zlib",
+      "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+      "rev_count": 1022855,
+      "rev_date": "2026-06-26T09:58:34Z",
+      "scrape_date": "2026-06-27T04:59:40.437236Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.3.2",
+      "outputs_to_install": [
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out"
+      ],
+      "outputs": {
+        "dev": "/nix/store/a9psmsc93llkravrd50rrv8k3dwdw60x-zlib-1.3.2-dev",
+        "out": "/nix/store/dbz6pb9g67kpgpl95k8d85kzpxm1c32p-zlib-1.3.2",
+        "static": "/nix/store/7y3nkp1ygncjr2gbyxc3lj4zim1m7qnz-zlib-1.3.2-static"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
+}

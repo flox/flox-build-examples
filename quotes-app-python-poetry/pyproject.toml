@@ -1,0 +1,20 @@
+[project]
+name = "quotes-app-python-poetry"
+version = "0.1.0"
+description = "Quotes server: poetry.lock, console script"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi (>=0.115,<1.0)",
+    "uvicorn (>=0.34,<1.0)",
+    "numpy (>=2.0,<3.0)",
+]
+
+[project.scripts]
+quotes-app-python-poetry = "quotes_app.main:main"
+
+[tool.poetry]
+packages = [{ include = "quotes_app" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
