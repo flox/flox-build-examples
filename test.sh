@@ -101,6 +101,56 @@ test_app() {
 	wait $SERVER_PID 2>/dev/null || true
 }
 
+test_run_mode() {
+  local env_name="$1"
+  local build_name="$2"
+	local port=$BASE_PORT
+	echo "Testing $build_name in run mode on port $port..."
+
+	# Install the build by store path into a scratch environment and start it
+	# with `--mode run`, which is how a build is consumed once it leaves the
+	# project: no dev shell, no hook, only what the package itself carries.
+	local store_path
+	store_path=$(readlink -f "${env_name}/result-${build_name}")
+	local scratch="${TMPDIR:-/tmp}/flox-build-examples-run-mode-${build_name}-$$"
+	rm -rf "$scratch"
+	mkdir -p "$scratch"
+
+	echo "Installing $store_path into scratch environment $scratch"
+	$FLOXBIN init -d "$scratch" -n "${build_name}-run"
+	$FLOXBIN install -d "$scratch" "$store_path"
+
+	# A dev shell or CI image may export these; either one can paper over a
+	# package that is missing its own libraries, so run without them.
+	env -u PYTHONPATH -u LD_LIBRARY_PATH $FLOXBIN activate -d "$scratch" --mode run -- "$build_name" &
+	local SERVER_PID=$!
+
+	if ! wait_for_server "$port"; then
+		echo "❌ Server $build_name (run mode) did not become ready on port $port."
+		TEST_RESULTS+=("❌ $build_name (run mode) server not ready")
+		kill $SERVER_PID
+		wait $SERVER_PID 2>/dev/null || true
+		rm -rf "$scratch"
+		return 1
+	fi
+
+	local status
+	status=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:$port/quotes/1")
+	echo "Status code: $status"
+
+	if [[ "$status" -eq 200 ]]; then
+		echo "✅ $build_name (run mode) test passed."
+		TEST_RESULTS+=("✅ ${build_name} (run mode)")
+	else
+		echo "❌ $build_name (run mode) test failed: bad response."
+		TEST_RESULTS+=("❌ $build_name (run mode) response $status")
+	fi
+
+	kill $SERVER_PID
+	wait $SERVER_PID 2>/dev/null || true
+	rm -rf "$scratch"
+}
+
 print_summary() {
 	echo
 	echo "📋 Test Summary:"
@@ -139,6 +189,7 @@ main() {
 	  	if [ "$should_skip" == "false" ]; then
 	  		build_app "$env_name" "$build_name"
 	  		test_app "$env_name" "$build_name"
+	  		test_run_mode "$env_name" "$build_name"
 	  	fi
 	  done
 	done
