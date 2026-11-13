@@ -1,0 +1,56 @@
+schema-version = "1.19.0"
+
+[install]
+python3.pkg-path = "python312"
+poetry.pkg-path = "poetry"
+uv.pkg-path = "uv"
+# Linux-only: PyPI wheels expect libstdc++ and libz from the system. The build patches
+# their RUNPATH to the runtime environment's lib dir. Scoped so macOS does not pull a
+# 1.5 GiB compiler closure. gcc-unwrapped's `lib` output alone is 369 MiB vs 953 MiB.
+auto-patchelf.pkg-path = "auto-patchelf"
+auto-patchelf.systems = ["aarch64-linux", "x86_64-linux"]
+patchelf.pkg-path = "patchelf"
+patchelf.systems = ["aarch64-linux", "x86_64-linux"]
+gcc-unwrapped.pkg-path = "gcc-unwrapped"
+gcc-unwrapped.outputs = ["lib"]
+gcc-unwrapped.systems = ["aarch64-linux", "x86_64-linux"]
+zlib.pkg-path = "zlib"
+zlib.systems = ["aarch64-linux", "x86_64-linux"]
+
+[hook]
+on-activate = '''
+  # Poetry owns the dev venv (poetry.lock is the source of truth). It cannot be told the
+  # venv's path, only its parent, so keep it under the env cache and let poetry name it.
+  export POETRY_VIRTUALENVS_PATH="$FLOX_ENV_CACHE/poetry" POETRY_VIRTUALENVS_IN_PROJECT=false
+  # The nixpkgs poetry wrapper puts its own python (3.13) first on PATH; pin the venv to
+  # the manifest's interpreter or `poetry env activate` cannot find it.
+  poetry env use --quiet "$FLOX_ENV/bin/python3"
+  poetry install --quiet --no-interaction
+  # [profile] is sourced only by interactive shells; `flox activate -- cmd` needs this too.
+  export VIRTUAL_ENV="$(poetry env info --path)"
+  export PATH="$VIRTUAL_ENV/bin:$PATH"
+'''
+
+[profile]
+bash = 'eval "$(poetry env activate)"'
+zsh  = 'eval "$(poetry env activate)"'
+
+[build.quotes-app-python-poetry]
+version = "0.1.0"
+command = '''
+  export UV_PYTHON_DOWNLOADS=never UV_PYTHON_PREFERENCE=only-system UV_LINK_MODE=copy
+  uv venv --python "$FLOX_ENV/bin/python3" "$out"
+  export VIRTUAL_ENV="$out" UV_PROJECT_ENVIRONMENT="$out"
+  # poetry installs exactly poetry.lock into $out. It honours VIRTUAL_ENV only when it has
+  # no envs.toml record for this project and no in-project .venv, so neutralise both.
+  export POETRY_VIRTUALENVS_PATH="$out" POETRY_VIRTUALENVS_IN_PROJECT=false
+  poetry install --only main --no-root --no-interaction
+  uv pip install --no-deps .
+  if [ "$(uname)" = Linux ]; then
+    auto-patchelf --paths "$out/lib" --libs "$FLOX_ENV/lib"
+  fi
+'''
+runtime-packages = ["python3", "gcc-unwrapped", "zlib"]
+
+[options]
+systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]

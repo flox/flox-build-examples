@@ -24,8 +24,19 @@ ruby:
 rust:
 	./test.sh quotes-app-rust
 
-pip:
-	./test.sh quotes-app-pip
+python: python-uv python-requirements python-pyproject python-poetry
+
+python-uv:
+	./test.sh quotes-app-python-uv
+
+python-requirements:
+	./test.sh quotes-app-python-requirements
+
+python-pyproject:
+	./test.sh quotes-app-python-pyproject
+
+python-poetry:
+	./test.sh quotes-app-python-poetry
 
 
 clean:
